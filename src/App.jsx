@@ -6,19 +6,23 @@ import ContactPage from "./Pages/ContactPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Pages/Header";
 import Footer from "./Pages/Footer";
+
 import "./index.css";
+import Login from "./Components/Login_Signup/Login";
+import MainLoginPage from "./Components/Login_Signup/MainLoginPage";
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/feature" element={<FeaturesPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/contact" element={<ContactPage />} /> */}
+          <Route path="/login" element={<MainLoginPage/>} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </>
   );
