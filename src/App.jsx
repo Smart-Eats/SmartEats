@@ -1,29 +1,48 @@
 import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import AboutPage from "./Pages/AboutPage";
 import FeaturesPage from "./Pages/FeaturesPage";
 import ContactPage from "./Pages/ContactPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./Pages/Header";
-import Footer from "./Pages/Footer";
-
-import "./index.css";
-import Login from "./Components/Login_Signup/Login";
 import MainLoginPage from "./Components/Login_Signup/MainLoginPage";
+import AppLayout from "./Layout/AppLayout";
+import ErrorPage from "./Components/Error/ErrorPage";
+import "./index.css";
+
 const App = () => {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <AppLayout />,
+      errorElement:<ErrorPage/>,
+      children: [
+        {
+          path: "/",
+          element: <HomePage />,
+        },
+        {
+          path: "/about",
+          element: <AboutPage />,
+        },
+        {
+          path: "/contact",
+          element: <ContactPage />,
+        },
+        {
+          path: "/feature",
+          element: <FeaturesPage />,
+        },
+        
+      ],
+    },
+    {
+      path: "/login",
+      element: <MainLoginPage />,
+    },
+  ]);
   return (
     <>
-      <BrowserRouter>
-        {/* <Header /> */}
-        <Routes>
-          {/* <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/feature" element={<FeaturesPage />} />
-          <Route path="/contact" element={<ContactPage />} /> */}
-          <Route path="/login" element={<MainLoginPage/>} />
-        </Routes>
-        {/* <Footer /> */}
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </>
   );
 };
