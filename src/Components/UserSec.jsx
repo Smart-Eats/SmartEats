@@ -1,6 +1,6 @@
 import React from "react";
 import UserCard from "./UserCard";
-import UserCarddata from "./UserCarddata";
+import UserCarddata from "../Data/UserCarddata";
 
 const UserSec = () => {
   return (

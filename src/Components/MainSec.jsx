@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import CardData from "./CardData";
+import CardData from "../Data/CardData";
 
 const MainSec = () => {
   return (
