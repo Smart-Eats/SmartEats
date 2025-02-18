@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Login.css";
-import Signup from "./Signup";
-import LoginContent from "./LoginContent";
-import SignupContent from "./SignupContent";
-
 const Login = ({toggleForm}) => {
   return (
     <div className="col align-items-center flex-col sign-up">

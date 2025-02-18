@@ -8,6 +8,7 @@ import MainLoginPage from "./Components/Login_Signup/MainLoginPage";
 import AppLayout from "./Layout/AppLayout";
 import ErrorPage from "./Components/Error/ErrorPage";
 import "./index.css";
+import Sidebar from "./Layout/SideBar/Sidebar";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const App = () => {
     {
       path: "/login",
       element: <MainLoginPage />,
+    },
+    {
+      path: "/sidebar",
+      element: <Sidebar />,
     },
   ]);
   return (
