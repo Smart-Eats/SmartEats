@@ -1,15 +1,16 @@
 import React from "react";
+import styles from "./login.module.css";
 
-const Signup = ({toggleForm}) => {
+const Signup = ({ toggleForm }) => {
   return (
-    <div className="col align-items-center flex-col sign-in">
-      <div className="form-wrapper align-items-center">
-        <div className="form sign-in">
-          <div className="input-group">
+    <div className={`${styles.col} ${styles.alignItemsCenter} ${styles.flexCol} ${styles.signIn}`}>
+      <div className={`${styles.formWrapper} ${styles.alignItemsCenter}`}>
+        <div className={`${styles.form} ${styles.signIn}`}>
+          <div className={styles.inputGroup}>
             <i className="bx bxs-user"></i>
             <input type="text" placeholder="Username" />
           </div>
-          <div className="input-group">
+          <div className={styles.inputGroup}>
             <i className="bx bxs-lock-alt"></i>
             <input type="password" placeholder="Password" />
           </div>
@@ -19,7 +20,7 @@ const Signup = ({toggleForm}) => {
           </p>
           <p>
             <span>Don't have an account?</span>
-            <b onClick={toggleForm} className="pointer">
+            <b onClick={toggleForm} className={styles.pointer}>
               Sign up here
             </b>
           </p>

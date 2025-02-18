@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Login.css";
+import styles from "./login.module.css";
 import Signup from "./Signup";
 import LoginContent from "./LoginContent";
 import SignupContent from "./SignupContent";
@@ -11,24 +11,24 @@ const MainLoginPage = () => {
   useEffect(() => {
     const container = document.getElementById("container");
     setTimeout(() => {
-      container.classList.add("sign-in");
+      container.classList.add(styles.signIn);
     }, 200);
   }, []);
 
   const toggleForm = () => {
     const container = document.getElementById("container");
-    container.classList.toggle("sign-in");
-    container.classList.toggle("sign-up");
+    container.classList.toggle(styles.signIn);
+    container.classList.toggle(styles.signUp);
     setIsSignIn(!isSignIn);
   };
 
   return (
-    <div className="container" id="container">
-      <div className="row">
-        <Login toggleForm={toggleForm}/>
+    <div className={styles.container} id="container">
+      <div className={styles.row}>
+        <Login toggleForm={toggleForm} />
         <Signup toggleForm={toggleForm} />
       </div>
-      <div className="row content-row">
+      <div className={`${styles.row} ${styles.contentRow}`}>
         <LoginContent />
         <SignupContent />
       </div>
