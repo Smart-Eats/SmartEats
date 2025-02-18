@@ -1,14 +1,17 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Header from '../Pages/Header';
 import Footer from '../Pages/Footer'
-const AppLayout = () => {
+import Sidebar from './SideBar/Sidebar';
+import './AppLayout.css';
+const AppLayout = ({ showSidebar = true }) => {
   return (
-    <>
-    <Header/>
-    <Outlet/>
-    <Footer/>
-    </>
+    <div className="layout">
+      {showSidebar && <Sidebar />} 
+      <div className={`content ${showSidebar ? 'with-sidebar' : 'without-sidebar'}`}>
+        <Outlet /> 
+      </div>
+      {/* <Footer /> */}
+    </div>
   )
 }
 

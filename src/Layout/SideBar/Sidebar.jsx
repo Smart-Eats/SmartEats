@@ -100,10 +100,6 @@ const Sidebar = () => {
           </div>
         </div>
       </nav>
-
-      <section className="home">
-        <div className="text">Dashboard Sidebar</div>
-      </section>
     </>
   );
 };
