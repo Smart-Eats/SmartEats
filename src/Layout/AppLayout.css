@@ -1,33 +1,32 @@
-/* AppLayout.css */
 
 .layout {
     display: flex;
-    min-height: 100vh; /* Ensure layout takes full height */
-  }
-  
-  /* Sidebar takes 40% of the width and is fixed to the left */
-  .sidebar {
+    min-height: 100vh;
+}
+
+.sidebar {
     width: 250px;
-    height: 100vh; /* Full height */
-    position: fixed; /* Fix the sidebar to the left */
+    height: 100vh;
+    position: fixed;
     left: 0;
     top: 0;
-    background-color: #f4f4f4; /* Light gray background */
-    z-index: 100; /* Ensure sidebar is above other content */
-  }
-  
-  /* Content area */
-  .content {
-    flex-grow: 1; /* Takes remaining space */
-    transition: margin-left 0.3s ease; /* Smooth transition for margin changes */
-  }
-  
-  /* When sidebar is visible, push content to the right by 40% */
-  .with-sidebar {
-    margin-left: 100px; 
-  }
-  
-  /* When sidebar is hidden, content takes full width */
-  .without-sidebar {
-    margin-left: 0; /* No margin when sidebar is hidden */
-  }
+    background-color: #f4f4f4;
+    z-index: 100;
+}
+
+body.dark .sidebar {
+    background-color: var(--sidebar-color) !important;
+}
+
+.content {
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+}
+
+.with-sidebar {
+    margin-left: 100px;
+}
+
+.without-sidebar {
+    margin-left: 0;
+}
