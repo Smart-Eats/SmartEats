@@ -1,0 +1,212 @@
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #2C3E50;
+    color: white;
+    flex-wrap: nowrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .navbar-list {
+    display: flex;
+    list-style: none;
+    gap: 16px;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      padding: 12px;
+      align-items: flex-start;
+    }
+  
+    .navbar-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+  
+    .auth-buttons {
+      justify-content: center;
+      margin-top: 12px;
+    }
+  }
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #2C3E50;
+  color: white;
+  flex-wrap: wrap;
+}
+.navbar-list {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .auth-buttons button {
+    padding: 8px 16px;
+  }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ecf0f1; 
+  }
+  
+  /* Header Container */
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: #2C3E50;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+  }
+  
+  .logo h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1ABC9C; 
+    letter-spacing: 1px;
+  }
+  
+ 
+  .navbar-list {
+    display: flex;
+    list-style-type: none;
+    gap: 24px;
+  }
+  
+  .navbar-list li a {
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    color: white;
+    transition: color 0.3s;
+  }
+  
+  .navbar-list li a:hover,
+  .navbar-list li a.active {
+    color: #F39C12; /* Yellow */
+    border-bottom: 2px solid #F39C12;
+    padding-bottom: 2px;
+    transition: 0.2s;
+  }
+  
+ 
+  .auth-buttons {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .login-but,
+  .signup-but {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  
+  .login-but {
+    background-color: #3498DB; 
+    color: white;
+  }
+  
+  .login-but:hover {
+    background-color: transparent;
+    color: #3498DB;
+    border: 2px solid #3498DB;
+  }
+  
+  /* Sign Up Button */
+  .signup-but {
+    background-color: #E74C3C; 
+    color: white;
+  }
+  
+  .signup-but:hover {
+    background-color: transparent;
+    color: #E74C3C;
+    border: 2px solid #E74C3C;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      padding: 16px;
+    }
+  
+    .navbar-list {
+      flex-direction: column;
+      align-items: center;
+      margin: 12px 0;
+    }
+  
+    .auth-buttons {
+      flex-direction: column;
+    }
+  
+    .login-but,
+    .signup-but {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  }
+  
+
+  @media (max-width: 480px) {
+    .logo h1 {
+      font-size: 1.5rem;
+    }
+  
+    .navbar-list li a {
+      font-size: 0.85rem;
+    }
+  
+    .login-but,
+    .signup-but {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+    }
+  }
+  

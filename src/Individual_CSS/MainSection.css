@@ -1,0 +1,46 @@
+
+.mainsec-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f5f7fa;
+}
+
+.mainsec-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.mainsec-subtitle {
+  font-size: 1.25rem;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+.mainsec-button {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #1abc9c;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.mainsec-button:hover {
+  background-color: #16a085;
+}
+
+.mainsec-part2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
