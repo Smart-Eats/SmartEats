@@ -14,7 +14,7 @@ const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <AppLayout />,
+      element: <AppLayout showSidebar={true} />,
       errorElement:<ErrorPage/>,
       children: [
         {
