@@ -6,8 +6,8 @@ const HomePage = () => {
   return (
     <>
       <div className="home-container">
-        <MainSec />
-        <UserSec />
+        {/* <MainSec />
+        <UserSec /> */}
       </div>
     </>
   );

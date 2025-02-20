@@ -1,0 +1,36 @@
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #f4f4f4;
+    z-index: 100;
+}
+
+body.dark .sidebar {
+    background-color: var(--sidebar-color) !important;
+}
+
+.content {
+    flex-grow: 1;
+    transition: margin-left 0.3s ease;
+}
+
+.with-sidebar {
+    margin-left: 250px;
+}
+
+.without-sidebar {
+    margin-left: 0;
+}
+.sidebar.close ~ .content.with-sidebar {
+    margin-left: 80px; 
+  }
