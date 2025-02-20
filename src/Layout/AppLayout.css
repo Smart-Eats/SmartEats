@@ -2,6 +2,7 @@
 .layout {
     display: flex;
     min-height: 100vh;
+    flex-direction: column;
 }
 
 .sidebar {
@@ -24,9 +25,12 @@ body.dark .sidebar {
 }
 
 .with-sidebar {
-    margin-left: 100px;
+    margin-left: 250px;
 }
 
 .without-sidebar {
     margin-left: 0;
 }
+.sidebar.close ~ .content.with-sidebar {
+    margin-left: 80px; 
+  }

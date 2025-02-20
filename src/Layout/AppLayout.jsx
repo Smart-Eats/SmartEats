@@ -1,18 +1,25 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Footer from '../Pages/Footer'
-import Sidebar from './SideBar/Sidebar';
-import './AppLayout.css';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Sidebar from "./SideBar/Sidebar";
+import Navbar from "./Navbar/Navbar";
+import Footer from "./Footer/Footer";
+import "./AppLayout.css";
 const AppLayout = ({ showSidebar = true }) => {
   return (
     <div className="layout">
-      {showSidebar && <Sidebar />} 
-      <div className={`content ${showSidebar ? 'with-sidebar' : 'without-sidebar'}`}>
-        <Outlet /> 
-      </div>
-      {/* <Footer /> */}
-    </div>
-  )
-}
+      {showSidebar && <Sidebar />}
 
-export default AppLayout
+      <div
+        className={`content ${
+          showSidebar ? "with-sidebar" : "without-sidebar"
+        }`}
+      >
+        <Navbar />
+        <Outlet />
+        <Footer />
+      </div>
+    </div>
+  );
+};
+
+export default AppLayout;
