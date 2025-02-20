@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import "./Sidebar.css"; // Import the CSS file
-
+import React, { useContext, useEffect, useState } from "react";
+import "./Sidebar.css"; 
+import { DarkMode } from "../../Store/DarkModeStore";
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
+  const {isDarkMode,setIsDarkMode} = useContext(DarkMode);
+    useEffect(()=>{
+    setIsSidebarOpen(true);
+  },[])
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -20,7 +22,7 @@ const Sidebar = () => {
         <header>
           <div className="image-text">
             <span className="image">
-              <img src="logo.png" alt="Logo" />
+              <img src="./Images/logo.png" alt="Logo" />
             </span>
             <div className="text logo-text">
               <span className="name">Codinglab</span>
@@ -38,12 +40,7 @@ const Sidebar = () => {
             </li>
 
             <ul className="menu-links">
-              <li className="nav-link">
-                <a href="#">
-                  <i className="bx bx-home-alt icon"></i>
-                  <span className="text nav-text">Dashboard</span>
-                </a>
-              </li>
+             
               <li className="nav-link">
                 <a href="#">
                   <i className="bx bx-bar-chart-alt-2 icon"></i>
