@@ -9,7 +9,7 @@ import AppLayout from "./Layout/AppLayout";
 import ErrorPage from "./Components/Error/ErrorPage";
 import "./index.css";
 import Sidebar from "./Layout/SideBar/Sidebar";
-
+import UserProfile from "./Components/UserProfile/UserProfile";
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -33,7 +33,10 @@ const App = () => {
           path: "/feature",
           element: <FeaturesPage />,
         },
-        
+        {
+          path: "/user",
+          element:<UserProfile/>
+        }
       ],
     },
     {

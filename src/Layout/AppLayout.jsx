@@ -15,7 +15,9 @@ const AppLayout = ({ showSidebar = true }) => {
         }`}
       >
         <Navbar />
-        <Outlet />
+        <div className="main">
+          <Outlet />
+        </div>
         <Footer />
       </div>
     </div>
