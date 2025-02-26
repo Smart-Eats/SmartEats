@@ -3,16 +3,19 @@ import styles from "./Upload.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
+import { useContext } from "react";
+import { DarkMode } from "../../Store/DarkModeStore";
 
 const Upload = () => {
+    const {isDarkMode} = useContext(DarkMode);
   return (
     <>
-      <div className={styles.main_conatiner}>
+      <div className={`${styles.main_conatiner} ${isDarkMode?`${styles.dark}`:""}`}>
         <div className={styles.main_box}>
           <div className={styles.upload_box}>
             <div className={styles.img_box}>
               <img
-                src="https://img.freepik.com/premium-psd/3d-image-photo-picture-gallery-folder-icon-illustration_148391-1077.jpg"
+                src="./Images/upload.png"
                 alt="not-found"
               />
             </div>
