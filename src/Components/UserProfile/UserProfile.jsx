@@ -1,11 +1,64 @@
-import React from 'react'
-import styles from './UserProfile.module.css'
-const UserProfile = () => {
-  return (
-    <div className={styles.container}>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt sed incidunt esse repellat hic sunt minima adipisci quibusdam et? Soluta accusantium quisquam commodi tempore alias quis molestiae labore quibusdam quo illum laboriosam excepturi vero odio, ipsa omnis aperiam debitis vel minus deserunt iusto atque. Tenetur rerum dolorem temporibus praesentium sequi nesciunt quasi nemo ratione veritatis, debitis suscipit dolor officia accusantium perspiciatis, labore tempora aperiam beatae magnam sit! Ea beatae provident veniam numquam cupiditate eius quae ab in quisquam temporibus sequi molestiae perspiciatis harum doloremque, dolore soluta dignissimos? Tenetur, repellendus sit! Modi ipsa alias asperiores, ullam vitae quas quidem molestiae hic, corporis iusto reiciendis perferendis doloremque numquam quibusdam voluptatem, molestias suscipit similique quis. Est dolorem laudantium iure ipsam sint, facilis consectetur autem voluptatem obcaecati perspiciatis in perferendis, at illum deserunt hic alias. Officiis iure natus labore iste quisquam dicta reprehenderit repudiandae consectetur cupiditate, atque illo numquam! Mollitia quasi illo possimus sint laborum aliquid itaque commodi et, quibusdam delectus ipsam? At harum necessitatibus ipsam maxime ab! Eos vero, aliquid pariatur quos enim necessitatibus fuga, ipsum tempora dolorum rerum quod suscipit aperiam voluptas, placeat laudantium cum maxime! Beatae quod ducimus dolores, sunt sit quia ea non est! Eligendi eum magni quasi natus architecto suscipit harum eveniet. Neque sed modi mollitia reiciendis? Amet, aut maiores? Doloremque, porro fugit? Iure ab inventore magni enim! Itaque aspernatur voluptatem voluptates ratione provident et tenetur, eligendi rem quod in natus ab suscipit officiis cupiditate tempore ex at soluta id praesentium est vitae ipsa, veritatis eveniet non. Dolorum autem aspernatur delectus nulla accusamus! Deserunt, a culpa ab numquam doloremque aliquam id eos odio qui repellendus sequi ipsam asperiores corrupti labore vel illum accusantium! Repellendus expedita provident, architecto recusandae dicta dolor saepe autem? Eum assumenda qui pariatur enim voluptates quidem eaque voluptatem temporibus dolorum quibusdam nostrum expedita, sit velit quae reiciendis sint ad harum veritatis molestiae error rerum nulla quos eius tempora! Vero non dolore laboriosam alias, architecto cum animi error cupiditate quo similique consequatur voluptatum necessitatibus perspiciatis sed sapiente. Nihil illo quam vitae illum nemo laborum voluptates quibusdam ipsa aut porro. Natus sequi qui eveniet, aliquid a odio ullam excepturi, nam consequuntur reprehenderit tempore dolorem maiores fugiat sed accusamus sint molestiae eum aut dolorum, possimus provident repellendus corrupti fuga nesciunt! Aspernatur doloremque eius voluptates laborum nisi commodi cupiditate deleniti assumenda provident, quod labore optio possimus ipsa quae. Nesciunt, quibusdam dolorem, ex, architecto rem iste quo illo doloremque quae molestiae non eius officia dicta? Facilis fuga omnis, quia quaerat natus et necessitatibus, laboriosam quos illo itaque optio, fugit tempore distinctio impedit? Accusantium necessitatibus dignissimos eligendi numquam? Soluta, esse similique. Rem et atque, harum voluptatibus mollitia aut minus! Sit adipisci aliquam nostrum dolorem soluta. Deleniti eligendi sint earum! Repellendus quis laborum explicabo, blanditiis ab nesciunt nostrum sit ea tenetur quae nobis ipsam unde doloremque est, ut saepe cumque impedit magni ducimus assumenda consequatur reiciendis commodi! A optio perspiciatis fugit itaque. Doloremque aspernatur reprehenderit ab, adipisci, odit, ullam aliquam molestiae eveniet libero repellendus perspiciatis dignissimos ea vel officiis ad quis. Aspernatur ut omnis nulla ducimus in quia asperiores recusandae repellendus eveniet sunt nostrum fuga, doloribus nobis animi repellat quas ea culpa obcaecati quod quos fugit non ipsum. Ipsum minima voluptatem distinctio illum ipsa non ut odit facere iste quaerat laudantium, adipisci asperiores nostrum fugiat nesciunt. Dicta ducimus ut sequi numquam, rem modi laborum minima optio quibusdam possimus! Nisi deserunt, saepe tenetur veniam velit modi mollitia optio ipsum quidem. Eius non blanditiis harum aperiam maiores quaerat delectus ipsa, esse, magnam assumenda atque fugit mollitia odit voluptatum nostrum? Sed unde consectetur inventore ratione neque consequatur repudiandae autem repellendus quae eum nesciunt omnis tenetur consequuntur atque non facere distinctio, earum quidem quia officiis recusandae? Officiis cumque sapiente adipisci in similique ab corrupti consectetur dicta doloribus molestiae dolore pariatur laudantium unde, harum ipsam excepturi dolorem animi autem maiores aliquid ullam. Architecto, officiis asperiores perferendis cupiditate, similique facere nobis debitis placeat veritatis sit modi eum? Architecto rerum ducimus dolore qui iusto cumque tempora, esse, iure mollitia praesentium inventore temporibus dicta, suscipit in itaque dolorum enim reiciendis iste illum voluptatum repudiandae voluptas quae molestias aperiam. Architecto, ad eius, vel blanditiis accusamus voluptatem eaque accusantium quae dicta dolores necessitatibus nostrum voluptas quaerat, placeat facilis cum eos fuga. In illum fugiat error architecto minima amet. Velit expedita recusandae corrupti atque distinctio sequi est dolor sunt necessitatibus consequatur possimus, voluptatibus iure, saepe molestiae aut a commodi et dolores hic, repellat temporibus architecto. Delectus consequatur deleniti amet quod voluptatum facere quis dignissimos nulla voluptatem vel! Id explicabo, molestiae nobis sequi repellendus, aliquid voluptatem quidem iste officia voluptas dolore totam itaque velit ut vitae! Et sequi illo animi nostrum debitis modi repellendus laudantium aliquid, obcaecati delectus. Exercitationem fugit voluptatem quas officiis tempore maiores sit fuga provident omnis corrupti vel incidunt similique quia quae soluta eaque ex laboriosam, possimus, natus vitae. Ea aliquam, aliquid, praesentium eaque deserunt aut, error sequi dolor quae veritatis iusto quasi cumque! At in voluptatibus pariatur perspiciatis laboriosam excepturi inventore quaerat consequuntur esse fugit eligendi recusandae ut possimus corporis odio aut molestiae quos perferendis, vel repudiandae quis. Cupiditate, voluptates mollitia? Soluta exercitationem quidem voluptatibus nisi ut quae accusantium ratione molestias itaque dicta consequuntur, nulla nihil illum possimus? Dolor dolore est maxime aperiam, reiciendis sequi voluptas quisquam, molestias deserunt dicta libero ut. Esse sed consectetur inventore quos iste delectus fuga nisi unde exercitationem laborum placeat aspernatur suscipit temporibus expedita illum repellendus odio molestias, cumque cum earum dolorum dolore asperiores nulla? Consectetur, quibusdam vel voluptatibus consequuntur ipsa sit, voluptas, dolore doloremque saepe repellat cupiditate a reiciendis iusto. Animi sed suscipit debitis ipsa? Aspernatur aperiam quis vel quos modi illum enim natus incidunt, corrupti iusto ratione minus fuga obcaecati harum amet fugiat eaque non omnis possimus earum temporibus laudantium alias! Quas doloribus impedit asperiores fugiat vitae eum accusamus ipsum optio dicta, ipsa debitis quibusdam? Asperiores repellendus, provident molestias odio cum ut consectetur debitis quas deleniti quaerat fuga excepturi consequuntur veritatis iusto expedita neque id quo! A, explicabo est. Cum labore impedit, debitis, deleniti saepe distinctio ipsum delectus nostrum explicabo voluptatem rem reiciendis maiores?
-    </div>
-  )
-}
+import React from 'react';
+import styles from './UserProfile.module.css';
+import { useContext } from 'react';
+import { DarkMode } from '../../Store/DarkModeStore';
 
-export default UserProfile
+const UserProfile = () => {
+  const { isDarkMode } = useContext(DarkMode);
+
+  // Example user data
+  const user = {
+    name: "Himanshu Sharma",
+    email: "sharmahimanshuvdi@gmail.com",
+    phone: "+91 9873125326",
+    age: 28,
+    weight: 75, // in kg
+    height: 175, // in cm
+    gender: "Male",
+    dietaryPreference: "Vegetarian",
+    healthGoals: ["Lose weight", "Improve stamina"],
+  };
+
+  // Calculate BMI
+  const calculateBMI = (weight, height) => {
+    const heightInMeters = height / 100;
+    return (weight / (heightInMeters * heightInMeters)).toFixed(2);
+  };
+
+  const bmi = calculateBMI(user.weight, user.height);
+
+  return (
+    <div className={`${styles.container} ${isDarkMode ? styles.dark : ""}`}>
+      <div className={`${styles.item} ${styles.user_data}`}>
+        <div className={styles.image}>
+          <img src="./Images/userprofile/men1.png" alt="User Profile" />
+          <div className={styles.name}>{user.name}</div>
+          <div className={styles.contact}>
+            <div className={styles.email}>{user.email}</div>
+            <div className={styles.phone}>{user.phone}</div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.item}>
+        <h3>Health Information</h3>
+        <div className={styles.healthInfo}>
+          <p><strong>Age:</strong> {user.age}</p>
+          <p><strong>Weight:</strong> {user.weight} kg</p>
+          <p><strong>Height:</strong> {user.height} cm</p>
+        </div>
+      </div>
+
+      <div className={styles.item}>
+        <h3>Health Goals</h3>
+        <ul className={styles.healthGoals}>
+          {user.healthGoals.map((goal, index) => (
+            <li key={index}>{goal}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default UserProfile;
