@@ -18,6 +18,7 @@
   --primary-color-light: #f6f5ff;
   --toggle-color: #ddd;
   --text-color: #707070;
+  --dark-text: #111111;
 
   /* ====== Transition ====== */
   --tran-03: all 0.2s ease;
@@ -32,6 +33,7 @@ body.dark {
   --primary-color-light: #3a3b3c;
   --toggle-color: #fff;
   --text-color: #ccc;
+  --dark-text: #ccc;
 }
 
 body {

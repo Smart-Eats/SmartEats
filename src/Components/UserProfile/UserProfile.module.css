@@ -1,0 +1,174 @@
+.container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; 
+    grid-template-rows: auto auto; 
+    gap: 40px; 
+    min-height: 90vh; 
+    padding: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: var(--primary-color-light);
+}
+
+.user_data {
+    grid-column: 1 / 2; 
+    grid-row: 1 / 3; 
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: var(--sidebar-color);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: var(--sidebar-color);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.item:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.item:nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.item:nth-child(3) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; 
+    height: 100%;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.image img {
+    width: auto;
+    height: 50%; 
+    border-radius: 50%; /* Optional: Makes the image circular */
+}
+
+.name {
+    font-family: "Eagle Lake", serif;
+    font-size: 3rem;
+    color: var(--dark-text);
+}
+
+.contact {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.contact .email, .contact .phone {
+    font-family: "Questrial", serif;
+    letter-spacing: 2px;
+    font-size: 18px;
+    color: var(--dark-text);
+}
+
+.contact .email::before, .contact .phone::before {
+    content: "✉️"; /* Email icon */
+    font-size: 1.2rem;
+    letter-spacing: 10px;
+}
+
+.contact .phone::before {
+    content: "📞"; /* Phone icon */
+}
+
+.healthInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.healthInfo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.healthInfo p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+    
+}
+.healthInfo p strong{
+    font-family: "Cinzel", serif;
+    margin-right: 30px;
+}
+.healthInfo p:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.healthGoals {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.healthGoals li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.2rem;
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.healthGoals li:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.healthGoals li::before {
+    content: "✔️";
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-family: "Eagle Lake", serif;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
