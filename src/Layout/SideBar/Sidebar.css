@@ -38,6 +38,7 @@ body {
   min-height: 100vh;
   background-color: var(--body-color);
   transition: var(--tran-05);
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -158,6 +159,7 @@ header .image-text .profession {
   font-size: 22px;
   cursor: pointer;
   transition: var(--tran-05);
+  z-index: 1000;
 }
 
 body.dark .sidebar header .toggle {

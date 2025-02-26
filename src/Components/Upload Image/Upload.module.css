@@ -1,12 +1,10 @@
-*{
-  overflow-x: hidden;
-}
+
 .main_conatiner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: auto;
     height: 90vh;
     background-color: var(--body-color);
 
