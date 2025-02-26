@@ -1,13 +1,17 @@
-.main-container {
+*{
+  overflow-x: hidden;
+}
+.main_conatiner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     background-color: rgb(243, 240, 240);
+
   }
-  .main-box {
+  .main_box {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,8 +20,10 @@
     height: 70%;
     background-color: white;
     border-radius: 1.1rem;
+    gap: 50px;
+    padding: 40px;
   }
-  .upload-box {
+  .upload_box {
     display: flex;
     flex-direction: column;
     border: 2px dotted grey;
@@ -28,39 +34,41 @@
     border-radius: 1.1rem;
     margin-top: 1rem;
   }
-  .img-box {
+  .img_box {
     /* border:2px solid red;  */
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .img-box img {
+  .img_box img {
     width: 10%;
   }
-  .main-box-text {
+  .main_box_text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .main-box-text p {
+  .main_box_text p {
     color: grey;
+    letter-spacing: 1px;
+    margin-top: 10px;
   }
-  .main-button-box {
+  .main_button_box {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1.4rem;
     margin-top: 1rem;
   }
-  .main-button-box button {
+  .main_button_box button {
     padding: 7px 21px;
     transition: transform 0.3s ease-in-out;
   }
-  .main-button-box button:hover {
+  .main_button_box button:hover {
     transform: scale(1.1);
   }
-  .footer-cont {
+  .footer_cont {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -68,7 +76,7 @@
     margin-left: 1.3rem;
     color: grey;
   }
-  .main-button-box button svg {
+  .main_button_box button svg {
     margin-right: 8px;
   }
   
