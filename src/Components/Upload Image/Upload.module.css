@@ -1,0 +1,82 @@
+*{
+  overflow-x: hidden;
+}
+.main_conatiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+    background-color: rgb(243, 240, 240);
+
+  }
+  .main_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 78%;
+    height: 70%;
+    background-color: white;
+    border-radius: 1.1rem;
+    gap: 50px;
+    padding: 40px;
+  }
+  .upload_box {
+    display: flex;
+    flex-direction: column;
+    border: 2px dotted grey;
+    justify-content: center;
+    align-items: center;
+    height: 82%;
+    width: 96%;
+    border-radius: 1.1rem;
+    margin-top: 1rem;
+  }
+  .img_box {
+    /* border:2px solid red;  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .img_box img {
+    width: 10%;
+  }
+  .main_box_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .main_box_text p {
+    color: grey;
+    letter-spacing: 1px;
+    margin-top: 10px;
+  }
+  .main_button_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.4rem;
+    margin-top: 1rem;
+  }
+  .main_button_box button {
+    padding: 7px 21px;
+    transition: transform 0.3s ease-in-out;
+  }
+  .main_button_box button:hover {
+    transform: scale(1.1);
+  }
+  .footer_cont {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin-left: 1.3rem;
+    color: grey;
+  }
+  .main_button_box button svg {
+    margin-right: 8px;
+  }
+  

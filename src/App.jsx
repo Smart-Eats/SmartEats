@@ -10,6 +10,8 @@ import ErrorPage from "./Components/Error/ErrorPage";
 import "./index.css";
 import Sidebar from "./Layout/SideBar/Sidebar";
 import UserProfile from "./Components/UserProfile/UserProfile";
+import Upload from "./Components/Upload Image/Upload";
+
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -36,6 +38,10 @@ const App = () => {
         {
           path: "/user",
           element:<UserProfile/>
+        },
+        {
+          path: "/upload",
+          element:<Upload/>
         }
       ],
     },
