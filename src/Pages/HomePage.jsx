@@ -1,16 +1,9 @@
-import React from "react";
-import MainSec from "../Components/MainSec";
-import UserSec from "../Components/UserSec";
+import React from 'react'
 
-const HomePage = () => {
+const Homepage = () => {
   return (
-    <>
-      <div className="home-container">
-        {/* <MainSec />
-        <UserSec /> */}
-      </div>
-    </>
-  );
-};
+    <div>Homepage</div>
+  )
+}
 
-export default HomePage;
+export default Homepage

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
-import { DarkMode } from "../../Store/DarkModeStore";
+import { DarkMode } from "../../../Store/DarkModeStore";
 
 const Upload = () => {
     const {isDarkMode} = useContext(DarkMode);

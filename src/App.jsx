@@ -1,16 +1,16 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomePage from "./Pages/HomePage";
-import AboutPage from "./Pages/AboutPage";
-import FeaturesPage from "./Pages/FeaturesPage";
-import ContactPage from "./Pages/ContactPage";
+
+
 import MainLoginPage from "./Components/Login_Signup/MainLoginPage";
 import AppLayout from "./Layout/AppLayout";
 import ErrorPage from "./Components/Error/ErrorPage";
 import "./index.css";
 import Sidebar from "./Layout/SideBar/Sidebar";
 import UserProfile from "./Components/UserProfile/UserProfile";
-import Upload from "./Components/Upload Image/Upload";
+import Upload from "./Components/Features/Upload Image/Upload";
+import BMI from "./Components/Features/BMI/BMI1/BMI";
+import Homepage from "./Pages/Homepage";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -21,19 +21,7 @@ const App = () => {
       children: [
         {
           path: "/",
-          element: <HomePage />,
-        },
-        {
-          path: "/about",
-          element: <AboutPage />,
-        },
-        {
-          path: "/contact",
-          element: <ContactPage />,
-        },
-        {
-          path: "/feature",
-          element: <FeaturesPage />,
+          element: <Homepage />,
         },
         {
           path: "/user",
@@ -42,7 +30,12 @@ const App = () => {
         {
           path: "/upload",
           element:<Upload/>
+        },
+        {
+          path: "/bmi",
+          element:<BMI/>
         }
+
       ],
     },
     {
