@@ -1,20 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./BMI2.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+
 const BMI2 = () => {
+  const [height, setHeight] = useState(160);
+  const [weight, setWeight] = useState(60);
+
   return (
     <div className={styles.container}>
-      <div className={styles.heading}>
-        <h1>Choose One</h1>
+      <div className={styles.backBtn}>
+        <FontAwesomeIcon icon={faArrowLeft} />
       </div>
+      {/* <div className={styles.heading}>
+        <h1>Your Height and Weight</h1>
+      </div> */}
       <div className={styles.images}>
-        <img src="./Images/BMI/girl_bmi.png" alt="" srcset="" />
-        <img src="./Images/BMI/men_bmi.png" alt="" srcset="" />
+        <img src="./Images/BMI/girl_bmi.png" alt="BMI Illustration" />
       </div>
-      <div className={styles.buttons}>
-        <button type="button">Female</button>
-        <button type="button">Male</button>
+      <div className={styles.ranges}>
+        <div className={styles.rangeContainer}>
+          <label>Height: {height} cm</label>
+          <input
+            type="range"
+            min="100"
+            max="220"
+            value={height}
+            onChange={(e) => setHeight(e.target.value)}
+          />
+        </div>
+        <div className={styles.rangeContainer}>
+          <label>Weight: {weight} kg</label>
+          <input
+            type="range"
+            min="30"
+            max="200"
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
+          />
+        </div>
       </div>
       <div className={styles.forward}>
         <button>

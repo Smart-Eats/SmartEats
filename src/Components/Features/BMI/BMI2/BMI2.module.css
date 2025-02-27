@@ -1,79 +1,102 @@
+/* BMI2.module.css */
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
-    padding: 3rem;
-    max-width: 600px;
-    margin: 5rem auto;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 500px;
+    margin: 4rem auto;
     background: var(--sidebar-color);
-    border-radius: 1rem;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    height: 80vh;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: auto;
 }
 
-/* Heading Styles */
+.backBtn {
+    align-self: flex-start;
+    color: var(--primary-color-btn);
+    font-size: 24px;
+    cursor: pointer;
+}
+
 .heading {
     text-align: center;
 }
 
-.heading h1 {
-    font-size: 2.5rem;
-    color: var(--text-color);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1rem;
-    font-family: "Questrial", serif;
-    word-spacing: 10px;
-}
+/* .heading h1 {
+    font-size: 2rem;
+    color: #333;
+    font-family: "Poppins", sans-serif;
+    text-transform: capitalize;
+} */
 
-/* Images Container */
 .images {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    height: auto;
 }
 
 .images img {
-    width: 200px;
-    height: 300px; /* Fixed height for both images */
+    width: 180px;
+    height: 250px;
     object-fit: contain;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .images img:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Buttons Section */
-.buttons {
+.ranges {
+    width: 100%;
     display: flex;
-    gap: 6rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
 }
 
-.buttons button {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 5px;
+.rangeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.rangeContainer label {
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+input[type="range"] {
+    width: 80%;
+    height: 5px;
+    appearance: none;
+    background: var(--toggle-color);
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #5849d3;
+    border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
-.buttons button:hover {
-    background-color: #5849d3;
-    transform: translateY(-3px);
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
 }
 
-/* Forward Button */
 .forward {
     display: flex;
     justify-content: center;
@@ -81,15 +104,17 @@
 }
 
 .forward button {
-    background-color: transparent;
+    background-color: var(--primary-color);
+    border-radius: 50%;
     border: none;
+    padding: 0.5rem 1rem;
     font-size: 2rem;
-    color: #695cfe;
+    color: #ffffff;
     cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .forward button:hover {
-    color: #5849d3;
     transform: scale(1.1);
+    color: #5849d3;
 }
