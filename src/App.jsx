@@ -33,7 +33,7 @@ const App = () => {
           element:<Upload/>
         },
         {
-          path: "/bmi",
+          path: "/bmi1",
           element:<BMI/>
         },
         {
