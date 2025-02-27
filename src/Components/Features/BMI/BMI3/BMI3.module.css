@@ -1,0 +1,128 @@
+/* BMI3.module.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 500px;
+    margin: 4rem auto;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    height: auto;
+    text-align: center;
+    position: relative;
+}
+
+.backBtn {
+    align-self: flex-start;
+    color: #695cfe;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.backBtn:hover {
+    color: #5849d3;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popper {
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    opacity: 0.8;
+    animation: fadeIn 1.5s ease-in-out infinite alternate;
+}
+
+.girlImage {
+    width: 180px;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 10px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.girlImage:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+.status {
+    border: 3px solid green;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    background: #e6ffe6;
+    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.2);
+}
+
+.status h3 {
+    color: green;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.sliderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.sliderContainer input{
+    background-color: var(--body-color);
+}
+
+.sliderContainer label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.bmiSlider {
+    width: 80%;
+    height: 6px;
+    appearance: none;
+    background-color: #904848;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+.bmiSlider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #695cfe;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.bmiSlider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: #5849d3;
+}

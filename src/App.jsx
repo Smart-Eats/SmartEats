@@ -12,6 +12,7 @@ import Upload from "./Components/Features/Upload Image/Upload";
 import BMI from "./Components/Features/BMI/BMI1/BMI";
 import Homepage from "./Pages/Homepage";
 import BMI2 from "./Components/Features/BMI/BMI2/BMI2";
+import BMI3 from "./Components/Features/BMI/BMI3/BMI3";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const App = () => {
         {
           path: "/bmi2",
           element:<BMI2/>
+        },
+        {
+          path: "/bmi3",
+          element:<BMI3/>
         }
 
       ],
