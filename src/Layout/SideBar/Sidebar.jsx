@@ -1,7 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Sidebar.css"; 
 import { DarkMode } from "../../Store/DarkModeStore";
+import {NavLink, useNavigate} from 'react-router-dom'
+import { GoUpload } from "react-icons/go";
 const Sidebar = () => {
+  const navigate = useNavigate()
+  
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const {isDarkMode,setIsDarkMode} = useContext(DarkMode);
     useEffect(()=>{
@@ -22,11 +26,11 @@ const Sidebar = () => {
         <header>
           <div className="image-text">
             <span className="image">
-              <img src="./Images/logo.png" alt="Logo" />
+              <img src="./Images/logo.jpg" alt="Logo" onClick={()=>{navigate('/')}}/>
             </span>
             <div className="text logo-text">
-              <span className="name">Codinglab</span>
-              <span className="profession">Web developer</span>
+              <span className="name"><span className="firsTLetter">S</span>mart </span>
+              <span className="profession"> <span className="firsTLetter">E</span>ats</span>
             </div>
           </div>
           <i className="bx bx-chevron-right toggle" onClick={toggleSidebar}></i>
@@ -34,42 +38,39 @@ const Sidebar = () => {
 
         <div className="menu-bar">
           <div className="menu">
-            <li className="search-box">
-              <i className="bx bx-search icon"></i>
-              <input type="text" placeholder="Search..." />
-            </li>
+            
 
             <ul className="menu-links">
              
               <li className="nav-link">
-                <a href="#">
-                  <i className="bx bx-bar-chart-alt-2 icon"></i>
-                  <span className="text nav-text">Revenue</span>
-                </a>
+                <NavLink to='/upload'>
+                  <i className="bx bx-upload icon upload"></i>
+                  <span className="text nav-text">Upload Image</span>
+                </NavLink>
               </li>
               <li className="nav-link">
-                <a href="#">
-                  <i className="bx bx-bell icon"></i>
-                  <span className="text nav-text">Notifications</span>
-                </a>
+                <NavLink to='/calorieCounter'>
+                  <img src="./Images/calories.png" className="icon img_icon" alt="" srcset="" />
+                  <span className="text nav-text">Calorie Counter</span>
+                </NavLink>
               </li>
               <li className="nav-link">
-                <a href="#">
-                  <i className="bx bx-pie-chart-alt icon"></i>
-                  <span className="text nav-text">Analytics</span>
-                </a>
+                <NavLink to='/bmiCalculator'>
+                  <img src="./Images/bmi.png" className="icon img_icon" alt="" srcset="" />
+                  <span className="text nav-text">BMI</span>
+                </NavLink>
               </li>
               <li className="nav-link">
-                <a href="#">
-                  <i className="bx bx-heart icon"></i>
-                  <span className="text nav-text">Likes</span>
-                </a>
+                <NavLink to='/meal'>
+                  <img src="./Images/meal.png" alt="" srcset="" className="icon img_icon"/>
+                  <span className="text nav-text">Meal Planning</span>
+                </NavLink>
               </li>
               <li className="nav-link">
-                <a href="#">
-                  <i className="bx bx-wallet icon"></i>
-                  <span className="text nav-text">Wallets</span>
-                </a>
+                <NavLink to='/chatBot'>
+                  <img src="/Images/chatbot.png" className="icon img_icon" alt="" srcset="" />
+                  <span className="text nav-text">Chat Bot</span>
+                </NavLink>
               </li>
             </ul>
           </div>

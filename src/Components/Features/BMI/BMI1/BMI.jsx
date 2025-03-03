@@ -2,7 +2,9 @@ import React from 'react'
 import styles from './BMI.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from 'react-router-dom';
 const BMI = () => {
+  const navigate = useNavigate();
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
@@ -13,8 +15,8 @@ const BMI = () => {
         <img src="./Images/BMI/men_bmi.png" alt="" srcset="" />
       </div>
       <div className={styles.buttons}>
-        <button type="button">Female</button>
-        <button type='button'>Male</button>
+        <button type="button" onClick={()=>{navigate("/bmiCalculator/select")}}>Female</button>
+        <button type='button' onClick={()=>{navigate("/bmiCalculator/select")}}>Male</button>
       </div>
       <div className={styles.forward}>
         {/* <button>
