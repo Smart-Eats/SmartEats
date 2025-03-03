@@ -9,6 +9,7 @@ import BMI from "../Components/Features/BMI/BMI1/BMI";
 import Homepage from "../Pages/Homepage";
 import BMI2 from "../Components/Features/BMI/BMI2/BMI2";
 import BMI3 from "../Components/Features/BMI/BMI3/BMI3";
+import { Calories } from "../Components/Features/CaloriesCounter/Calories";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Homepage /> },
       { path: "/userProfile", element: <UserProfile /> },
       { path: "/upload", element: <Upload /> },
+      { path: "/calorieCounter", element: <Calories /> },
       { path: "/bmiCalculator", element: <BMI /> },
       { path: "/bmiCalculator/select", element: <BMI2 /> },
       { path: "/bmiCalculator/select/result", element: <BMI3 /> },
