@@ -1,0 +1,246 @@
+/* Reset default styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Sans-serif;
+}
+
+/* Main container */
+.outermaxContainer {
+  background-color: #18181b; /* Very dark gray */
+  width: 100%;
+  height: 100%; /* Full viewport height */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center;
+  align-items: center; /* Align content to the top */
+  padding-top: 20px; /* Add some space from the top */
+}
+
+.outermax2Container {
+  padding: 20px;
+  width: 90%; /* Responsive width */
+}
+
+.upperContainer {
+  display: flex;
+  justify-content: space-between; /* Space between left and right containers */
+  width: 100%;
+}
+
+.leftContainer {
+  flex: 1;
+}
+
+.rightContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.green {
+  color: #7FFF00;
+  margin: 5px;
+  font-size: 3rem;
+}
+
+.grey {
+  color: #40414f;
+  margin: 5px;
+}
+
+.green2 {
+  color: #7FFF00;
+}
+
+.circles {
+  display: flex;
+  justify-content: space-evenly; /* Space the circles evenly */
+  width: 100%;
+  margin-top: 20px;
+}
+
+.circle {
+  position: relative;
+  width: 120px; /* Size of each circle */
+  height: 120px;
+  border-radius: 50%;
+  background-color: #40414f; /* Dark background for the circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: conic-gradient(#7FFF00 0%, #40414f 0%);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.label {
+  position: absolute;
+  top: 10px;
+  font-size: 0.8rem;
+}
+
+.value {
+  position: absolute;
+  bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Style for the search bar */
+.searchbar {
+  margin-top: 10px; /* Space between the text and the search bar */
+  padding: 10px;
+  width: 100%; /* Full width of the container */
+  max-width: 300px; /* Limit the width */
+  border: 2px solid #7FFF00; /* Border color to match the theme */
+  border-radius: 20px;
+  background-color: transparent;
+  color: white; /* Text color */
+  font-size: 1rem;
+}
+
+.searchbar::placeholder {
+  color: white; /* White color for the placeholder */
+}
+
+.searchbar:focus {
+  outline: none; /* Remove the default outline on focus */
+  border-color: #1E90FF; /* Highlight the border on focus */
+}
+
+/* Add styles for the date line */
+.dateLine {
+  display: flex;
+  justify-content: space-evenly; /* Distribute the dates evenly */
+  align-items: center;           /* Align the dates vertically */
+  margin-top: 40px;
+  width: 100%;                   /* Ensure the container spans the full width */
+  padding: 0;               /* Add some padding for better spacing */
+}
+
+.dateItem {
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  color: white;
+  font-weight: bold;
+}
+
+.goalMet {
+  background-color: #7FFF00; /* Neon Green if goal met */
+}
+
+.goalNotMet {
+  background-color: black; /* Red if goal not met */
+}
+
+/* Recipe Cards Section */
+.recipeSection {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.recipeCards {
+  display: flex;
+  justify-content: space-evenly; /* Distributes cards with equal space on all sides */
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+  margin-top: 20px;
+  padding: 0 10px; /* Optional: Adjust to control overall spacing */
+}
+
+/* Styling for each Recipe Card */
+.recipeCard {
+  width: 280px;
+  border: 1px solid #7FFF00; /* Green border to match the theme */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slight shadow for 3D effect */
+  overflow: hidden;
+  background-color: #18181b;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+  margin-bottom: 30px; /* Add some spacing between cards */
+}
+
+.recipeCard:hover {
+  transform: scale(1.05); /* Slight zoom-in on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Recipe Image */
+.recipeImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Recipe Details */
+.recipeDetails {
+  padding: 20px;
+  color: #7FFF00;
+}
+
+.recipeDetails h4 {
+  margin: 10px 0;
+  font-size: 20px; /* Increased font size for better readability */
+  font-weight: 600; /* Bolder font weight */
+  text-transform: capitalize; /* Capitalize first letter of each word */
+}
+
+.recipeDetails p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #dcdcdc; /* Slightly lighter color for better contrast */
+}
+
+/* Recipe Button Styling */
+.recipeDetails a {
+  display: inline-block;
+  background-color: #7FFF00; /* Green background */
+  color: #18181b; /* Dark text color for contrast */
+  font-size: 16px;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.recipeDetails a:hover {
+  background-color: #1E90FF; /* Change to blue on hover */
+  transform: translateY(-3px); /* Slight move up effect */
+}
+
+/* Style for the Recipe button */
+.recipeButton {
+  background-color: #7FFF00; /* Green color */
+  color: black;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.recipeButton:hover {
+  background-color: #66cc00; /* Darker green on hover */
+}
