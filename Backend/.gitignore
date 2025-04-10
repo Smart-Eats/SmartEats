@@ -1,0 +1,30 @@
+# Node modules (always ignore)
+node_modules/
+
+# Environment variables (NEVER push your secrets)
+.env
+
+# Log files
+logs
+*.log
+npm-debug.log*
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Uploaded files (if you're using multer or saving images)
+uploads/
+
+# Optional: Ignore coverage reports from testing tools
+coverage/
+
+# Optional: Ignore build folders if you ever transpile
+build/
+dist/
+
+# Optional: Ignore IDE/editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
