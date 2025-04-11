@@ -1,3 +1,4 @@
+
 import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
@@ -14,6 +15,11 @@ const userSchema = mongoose.Schema({
         type:String,
         required:true
     },
+    image:{
+       data:{type:Buffer,required:true},
+       contentType:{type:String,required:true},
+       default:"/uploads/default.gif"
+    },    
     isOAuth:{
         type:Boolean,
         default:false
