@@ -23,48 +23,47 @@ const Register = () => {
         "http://localhost:8000/auth/smarteats/signup",
         { name, email, password }
       );
-      toast.success(response.data.message || "Signup successful!")
+      setName("");
+      setEmail("");
+      setPassword("");
+      toast.success(response.data.message || "Signup successful!");
     } catch (err) {
-        if (err.response && err.response.data && err.response.data.error) {
-          // Join all validation errors and show them
-          toast.error(err.response.data.error.join("\n"));
-        } else {
-          toast.error(err.response?.data?.message || "Signup failed");
-        }
+      if (err.response && err.response.data && err.response.data.error) {
+        toast.error(err.response.data.error.join("\n"));
+      } else {
+        toast.error(err.response?.data?.message || "Signup failed");
       }
-    // setName("");
-    // setEmail("");
-    // setPassword("");
+    }
   };
   return (
     <div className={styles.main}>
       <Toaster
-  position="top-right"
-  gutter={16}
-  toastOptions={{
-    duration: 4000,
-    style: {
-      fontSize: '14px',
-      maxWidth: '500px',
-      padding: '12px 16px',
-      borderRadius: '8px',
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-    },
-    success: {
-      style: {
-        background: '#10B981', 
-        color: '#FFFFFF',
-        borderLeft: '4px solid #059669',
-      },
-    },
-    error: {
-      style: {
-        background: '#EF4444', 
-        color: '#FFFFFF',
-      },
-    },
-  }}
-/>
+        position="top-right"
+        gutter={16}
+        toastOptions={{
+          duration: 4000,
+          style: {
+            fontSize: "14px",
+            maxWidth: "500px",
+            padding: "12px 16px",
+            borderRadius: "8px",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+          },
+          success: {
+            style: {
+              background: "#10B981",
+              color: "#FFFFFF",
+              borderLeft: "4px solid #059669",
+            },
+          },
+          error: {
+            style: {
+              background: "#EF4444",
+              color: "#FFFFFF",
+            },
+          },
+        }}
+      />
       <div className={styles.container}>
         <h1 className={styles.heading}>Register for Smart Eats</h1>
 
@@ -79,7 +78,6 @@ const Register = () => {
               className={styles.input}
               placeholder="Full Name"
               aria-label="Full Name"
-              required
             />
           </div>
 
@@ -93,7 +91,6 @@ const Register = () => {
               className={styles.input}
               placeholder="Email Address"
               aria-label="Email Address"
-              required
             />
           </div>
 
@@ -107,7 +104,6 @@ const Register = () => {
               className={styles.input}
               placeholder="Password"
               aria-label="Password"
-              required
             />
           </div>
 
@@ -118,17 +114,22 @@ const Register = () => {
           </p>
 
           <div className={styles.divider}>OR CONTINUE WITH</div>
-
-          <div className={styles.socialButtons}>
-            <button className={styles.googleBtn}>
-              <img
-                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-                alt="Google"
-              />
-              Continue with Google
-            </button>
-          </div>
         </form>
+        <div className={styles.socialButtons}>
+          <button
+            className={styles.googleBtn}
+            onClick={() => {
+              window.location.href =
+                "http://localhost:8000/auth/smarteats/google";
+            }}
+          >
+            <img
+              src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+              alt="Google"
+            />
+            Continue with Google
+          </button>
+        </div>
       </div>
     </div>
   );

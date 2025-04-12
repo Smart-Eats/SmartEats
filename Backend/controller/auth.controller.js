@@ -34,7 +34,7 @@ export const Signup = async (req, res) => {
 };
 
 export const Login = async (req,res) => {
-    const{email,password} = req.validateData;
+    const{email,password} = req.validate;
    
     try {
         const USER = await user.findOne({email});
