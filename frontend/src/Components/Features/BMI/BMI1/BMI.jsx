@@ -11,12 +11,12 @@ const BMI = () => {
         <h1>Choose One</h1>
       </div>
       <div className={styles.images}>
-        <img src="./Images/BMI/girl_bmi.png" alt="" srcset="" />
-        <img src="./Images/BMI/men_bmi.png" alt="" srcset="" />
+        <img src="/Images/BMI/girl_bmi.png" alt="" srcset="" />
+        <img src="/Images/BMI/men_bmi.png" alt="" srcset="" />
       </div>
       <div className={styles.buttons}>
-        <button type="button" onClick={()=>{navigate("/bmiCalculator/select")}}>Female</button>
-        <button type='button' onClick={()=>{navigate("/bmiCalculator/select")}}>Male</button>
+        <button type="button" onClick={()=>{navigate("/layout/bmi-calculator/select")}}>Female</button>
+        <button type='button' onClick={()=>{navigate("/layout/bmi-calculator/select")}}>Male</button>
       </div>
       <div className={styles.forward}>
         {/* <button>

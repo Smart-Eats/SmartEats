@@ -43,7 +43,7 @@ const BMI2 = () => {
         </div>
       </div>
       <div className={styles.forward}>
-        <button onClick={()=>{navigate("/bmiCalculator/select/result")}}>
+        <button onClick={()=>{navigate("/layout/bmi-calculator/select/result")}}>
           <FontAwesomeIcon icon={faArrowRight} />
         </button>
       </div>

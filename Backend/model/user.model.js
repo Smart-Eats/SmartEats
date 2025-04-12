@@ -16,9 +16,9 @@ const userSchema = mongoose.Schema({
         required:true
     },
     image:{
-       data:{type:Buffer,required:true},
-       contentType:{type:String,required:true},
-       default:"/uploads/default.gif"
+       data:{type:Buffer},
+       contentType:{type:String},
+    //    default:"/uploads/default.gif"
     },    
     isOAuth:{
         type:Boolean,

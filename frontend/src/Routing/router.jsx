@@ -1,30 +1,51 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
-import MainLoginPage from "../Components/Login_Signup/MainLoginPage";
-import AppLayout from "../Layout/AppLayout"
-import ErrorPage from "../Components/Error/ErrorPage"
+
+// Layouts and Pages
+import AppLayout from "../Layout/AppLayout";
+import ErrorPage from "../Components/Error/ErrorPage";
+import Homepage from "../Pages/Homepage";
+
+// Auth Pages
+import MainLoginPage from "../Components/Authentication/MainAuthentication";
+import Login from "../Components/Authentication/Login";
+import Register from "../Components/Authentication/Signup"; // if this is same as Signup, pick one
+
+// User Features
 import UserProfile from "../Components/UserProfile/UserProfile";
 import Upload from "../Components/Features/Upload Image/Upload";
+import { Calories } from "../Components/Features/CaloriesCounter/Calories";
 import BMI from "../Components/Features/BMI/BMI1/BMI";
-import Homepage from "../Pages/Homepage";
 import BMI2 from "../Components/Features/BMI/BMI2/BMI2";
 import BMI3 from "../Components/Features/BMI/BMI3/BMI3";
-import { Calories } from "../Components/Features/CaloriesCounter/Calories";
+
 const router = createBrowserRouter([
+  // Public Routes
   {
     path: "/",
+    element: <MainLoginPage />,
+    errorElement: <ErrorPage />,
+    children: [
+      { path: "", element: <Login /> },  // default is login
+      { path: "login", element: <Login /> },
+      { path: "signup", element: <Register /> },
+    ],
+  },
+  // Protected Routes inside layout
+  {
+    path: "/layout",
     element: <AppLayout showSidebar={true} />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <Homepage /> },
-      { path: "/userProfile", element: <UserProfile /> },
-      { path: "/upload", element: <Upload /> },
-      { path: "/calorieCounter", element: <Calories /> },
-      { path: "/bmiCalculator", element: <BMI /> },
-      { path: "/bmiCalculator/select", element: <BMI2 /> },
-      { path: "/bmiCalculator/select/result", element: <BMI3 /> },
+      { path: "home", element: <Homepage /> },
+      { path: "user-profile", element: <UserProfile /> },
+      { path: "upload", element: <Upload /> },
+      { path: "calorie-counter", element: <Calories /> },
+      { path: "bmi-calculator", element: <BMI /> },
+      { path: "bmi-calculator/select", element: <BMI2 /> },
+      { path: "bmi-calculator/select/result", element: <BMI3 /> },
     ],
   },
-  { path: "/login", element: <MainLoginPage /> },
 ]);
+
 export default router;

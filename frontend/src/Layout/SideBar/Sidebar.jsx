@@ -26,7 +26,7 @@ const Sidebar = () => {
         <header>
           <div className="image-text">
             <span className="image">
-              <img src="./Images/logo.jpg" alt="Logo" onClick={()=>{navigate('/')}}/>
+              <img src="/Images/logo.jpg" alt="Logo" onClick={()=>{navigate('/')}}/>
             </span>
             <div className="text logo-text">
               <span className="name"><span className="firsTLetter">S</span>mart </span>
@@ -43,31 +43,31 @@ const Sidebar = () => {
             <ul className="menu-links">
              
               <li className="nav-link">
-                <NavLink to='/upload'>
+              <NavLink to="/layout/upload">
                   <i className="bx bx-upload icon upload"></i>
                   <span className="text nav-text">Upload Image</span>
                 </NavLink>
               </li>
               <li className="nav-link">
-                <NavLink to='/calorieCounter'>
-                  <img src="./Images/calories.png" className="icon img_icon" alt="" srcset="" />
+              <NavLink to="/layout/calorie-counter">
+                  <img src="/Images/calories.png" className="icon img_icon" alt="" srcset="" />
                   <span className="text nav-text">Calorie Counter</span>
                 </NavLink>
               </li>
               <li className="nav-link">
-                <NavLink to='/bmiCalculator'>
-                  <img src="./Images/bmi.png" className="icon img_icon" alt="" srcset="" />
+              <NavLink to="/layout/bmi-calculator">
+                  <img src="/Images/bmi.png" className="icon img_icon" alt="" srcset="" />
                   <span className="text nav-text">BMI</span>
                 </NavLink>
               </li>
               <li className="nav-link">
-                <NavLink to='/meal'>
-                  <img src="./Images/meal.png" alt="" srcset="" className="icon img_icon"/>
+              <NavLink to="/layout/meal">
+                  <img src="/Images/meal.png" alt="" srcset="" className="icon img_icon"/>
                   <span className="text nav-text">Meal Planning</span>
                 </NavLink>
               </li>
               <li className="nav-link">
-                <NavLink to='/chatBot'>
+              <NavLink to="/layout/chatBot">
                   <img src="/Images/chatbot.png" className="icon img_icon" alt="" srcset="" />
                   <span className="text nav-text">Chat Bot</span>
                 </NavLink>

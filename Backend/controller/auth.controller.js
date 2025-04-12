@@ -8,6 +8,7 @@ export const Signup = async (req, res) => {
     const existingUser = await user.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "Email already exists" });
+     
     }
     const hash = await bcrypt.hash(password, 10);
     const USER = await user.create({
@@ -33,7 +34,8 @@ export const Signup = async (req, res) => {
 };
 
 export const Login = async (req,res) => {
-    const{email,password} = req.validate;
+    const{email,password} = req.validateData;
+   
     try {
         const USER = await user.findOne({email});
         if(!USER)

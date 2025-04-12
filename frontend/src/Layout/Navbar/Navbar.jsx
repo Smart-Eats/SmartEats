@@ -11,7 +11,7 @@ const Navbar = () => {
         <ul className={styles.navbar_links}>
           <li>
             <div className={styles.img_div}> 
-              <img src="./Images/cat.jpg" className={styles.nav_img} alt="" onClick={()=>{navigate('/userProfile')}}/>
+              <img src="/Images/cat.jpg" className={styles.nav_img} alt="" onClick={()=>{navigate('/userProfile')}}/>
             </div>
           </li>
         </ul>

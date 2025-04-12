@@ -6,7 +6,7 @@ import authRoutes from './routing/auth.routes.js';
 import viewRoutes from './routing/view.routes.js';
 import passport from 'passport';
 import './config/Passport.js';
-
+import cors from 'cors';
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,6 +18,10 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 app.use(passport.initialize());
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true, // agar cookies ya auth bhej rahe ho
+  }));
 //! Set view Engine Uncomment If NEEDED
 // app.set('view engine','ejs');
 
