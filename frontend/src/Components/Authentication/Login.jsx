@@ -5,6 +5,7 @@ import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
+    const apiURL = import.meta.env.VITE_BACKEND_URL;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleEmailChange = (e) => {
@@ -17,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/auth/smarteats/login",
+        `${apiURL}/auth/smarteats/login`,
         {
           email,
           password,
@@ -102,22 +103,20 @@ const Login = () => {
           <div className={styles.divider}>OR CONTINUE WITH</div>
         </div>
         <div className={styles.socialButtons}>
-        <button
-          className={styles.googleBtn}
-          onClick={() => {
-            window.location.href =
-              "http://localhost:8000/auth/smarteats/google";
-          }}
-        >
-          <img
-            src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-            alt="Google"
-          />
-          Continue with Google
-        </button>
-      </div>
+          <button
+            className={styles.googleBtn}
+            onClick={() => {
+              window.location.href = `${apiURL}/auth/smarteats/google`;
+            }}
+          >
+            <img
+              src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+              alt="Google"
+            />
+            Continue with Google
+          </button>
+        </div>
       </form>
-      
     </div>
   );
 };

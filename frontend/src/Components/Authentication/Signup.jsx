@@ -3,7 +3,9 @@ import { Toaster, toast } from "react-hot-toast";
 import styles from "./Signup.module.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+
 const Register = () => {
+    const apiURL = import.meta.env.VITE_BACKEND_URL;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,10 +21,11 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:8000/auth/smarteats/signup",
-        { name, email, password }
-      );
+      const response = await axios.post(`${apiURL}/auth/smarteats/signup`, {
+        name,
+        email,
+        password,
+      });
       setName("");
       setEmail("");
       setPassword("");
@@ -119,8 +122,7 @@ const Register = () => {
           <button
             className={styles.googleBtn}
             onClick={() => {
-              window.location.href =
-                "http://localhost:8000/auth/smarteats/google";
+              window.location.href = `${apiURL}/auth/smarteats/google`;
             }}
           >
             <img
