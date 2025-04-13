@@ -5,7 +5,6 @@ import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
 import { DarkMode } from "../../../Store/DarkModeStore";
-
 const Upload = () => {
     const {isDarkMode} = useContext(DarkMode);
   return (
@@ -15,7 +14,7 @@ const Upload = () => {
           <div className={styles.upload_box}>
             <div className={styles.img_box}>
               <img
-                src="./Images/upload.png"
+                src="/Images/upload.png"
                 alt="not-found"
               />
             </div>
