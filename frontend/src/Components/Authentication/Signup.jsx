@@ -3,9 +3,14 @@ import { Toaster, toast } from "react-hot-toast";
 import styles from "./Signup.module.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+
+//! I have removed JWT token from Signup becouse now we have added otp verification , so when user is signup we will redirect user to email verification page where we enter otp after we send the JWT token and add it too cookies if we send JWT after signup and befire otp user can access all routes , which is a security issue so we add jwt after otp is verifies so that user does need to login again after the user is verified.
 
 const Register = () => {
     const apiURL = import.meta.env.VITE_BACKEND_URL;
+      const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,6 +31,8 @@ const Register = () => {
         email,
         password,
       });
+      localStorage.setItem('verificationEmail',email);
+      navigate('/verify-email');
       setName("");
       setEmail("");
       setPassword("");

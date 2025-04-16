@@ -1,5 +1,5 @@
 import express from "express";
-import { Login, Logout, Signup } from "../controller/auth.controller.js";
+import { Login, Logout, Signup , verifyOTP} from "../controller/auth.controller.js";
 import { validate } from "../middlewares/validate.middleware.js";
 import { LoginSchema, RegisterSchema } from "../validation/user.validation.js";
 import passport from "passport";
@@ -26,6 +26,7 @@ router.get(
 // NORMAL AUTH ROUTES
 router.post("/signup", validate(RegisterSchema), Signup);
 router.post("/login", validate(LoginSchema), Login);
+router.post("/verify-otp", verifyOTP);
 router.get("/logout", Logout);
 
 export default router;

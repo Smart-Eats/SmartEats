@@ -1,6 +1,9 @@
 import bcrypt from "bcrypt";
 import { user } from "../model/user.model.js";
 import { Token } from "../utils/JWT.js";
+import generateOTP from "../utils/OTP_Generator.js";
+import { sendMail } from "../utils/Mailer.js";
+import { PendingUser } from "../model/pendingUser.model.js";
 
 export const Signup = async (req, res) => {
   const { name, email, password } = req.validate;
@@ -8,23 +11,42 @@ export const Signup = async (req, res) => {
     const existingUser = await user.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "Email already exists" });
-     
-    }
+    };
+    const existingPendingUser = await PendingUser.findOne({email});
+    if(existingPendingUser)
+    {
+      res.status(400).json({
+        success:false,
+        message:"Please Verify Your Email First",
+      });
+    };
     const hash = await bcrypt.hash(password, 10);
-    const USER = await user.create({
-      name,
+    const otp = generateOTP();
+    console.log("Sending email to:", email);
+    await sendMail({
+      to: email,
+      subject: "Smart Eats OTP Verification",
+      html: `<div style="font-family:Arial,sans-serif;font-size:16px;">
+      <p>Hello 👋,</p>
+      <p>Your OTP for verifying your email is:</p>
+      <h2 style="color:#4F46E5;">${otp}</h2>
+      <p>This OTP will expire in 5 minutes.</p>
+      <p>Regards,<br/>SmartEats Team</p>
+    </div>`,
+    });
+    const PENDING_USER = await PendingUser.create({
+      name,   
       email,
       password: hash,
+      otp,
     });
-    const token = Token(USER);
-    res.cookie("token", token);
     res.status(200).json({
       success: true,
-      message: "User Created Successfuly",
-      user: { ...USER._doc, password: undefined },
+      message: "Signup successful. Please verify OTP sent to email.",
+      user: { ...PENDING_USER._doc, password: undefined },
     });
   } catch (error) {
-    console.error("Error:", error.message); // for debugging
+    console.error("Error:", error.message); 
     res.status(500).json({
       success: false,
       message: "Internal Server Error",
@@ -33,41 +55,82 @@ export const Signup = async (req, res) => {
   }
 };
 
-export const Login = async (req,res) => {
-    const{email,password} = req.validate;
-   
-    try {
-        const USER = await user.findOne({email});
-        if(!USER)
-        {
-            return res.status(400).json({success:false,message:"Invalid Email or Password"});
-        }
-        const isMatch = await bcrypt.compare(password, USER.password);
-        if(!isMatch)
-        {
-            return res.status(400).json({success:false,message:"Invalid Email or Password"});
-        }
-        const token = Token(USER);
-        res.cookie("token",token);
-        res.status(200).json({
-            success: true,
-            message: "User LogedIn successfully",
-            user: { ...USER._doc, password: undefined },
-          });
-    } catch (error) {
-        console.log("Error",error.message);
-        res.status(500).json({
-            success:false,
-            message:"Internal Server Error",
-            error:error.messsage
-        });
+export const Login = async (req, res) => {
+  const { email, password } = req.validate;
+
+  try {
+    const USER = await user.findOne({ email });
+    if (!USER) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Invalid Email or Password" });
     }
+    const isMatch = await bcrypt.compare(password, USER.password);
+    if (!isMatch) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Invalid Email or Password" });
+    }
+    const token = Token(USER);
+    res.cookie("token", token);
+    res.status(200).json({
+      success: true,
+      message: "User LogedIn successfully",
+      user: { ...USER._doc, password: undefined },
+    });
+  } catch (error) {
+    console.log("Error", error.message);
+    res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
+      error: error.messsage,
+    });
+  }
 };
 
-export const Logout = (req,res) => {
-    res.clearCookie("token");
+export const Logout = (req, res) => {
+  res.clearCookie("token");
+  res.status(200).json({
+    success: true,
+    message: "User Logout successfully",
+  });
+};
+
+export const verifyOTP = async (req, res) => {
+  const { otp } = req.body;
+  try {
+    const PENDING_USER = await PendingUser.findOne({ otp });
+    if (!PENDING_USER) {
+      return res.status(400).json({ success: false, message: "Invalid or Expired OTP" });
+    }
+    if(PENDING_USER.expiresAt < new Date())
+    {
+      await PendingUser.deleteOne({_id:PendingUser._id});
+      return res.status(400).json({ success: false, message: "OTP Expired"});
+    }
+    const {name,email,password} = PENDING_USER;
+    const USER = await user.create({
+      name,
+      email,
+      password,
+      isVerified:true
+    })
+    await USER.save();
+    await PendingUser.deleteOne({ _id: PendingUser._id });
+    const token = Token(USER);
+    res.cookie("token", token, {
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000, // This token is valid upto one day
+    });
     res.status(200).json({
-        success: true,
-        message: "User Logout successfully",
-      });
+      success:true,
+      message: "Email verified successfully",
+      user:{...USER._doc,password:undefined}
+    });
+  }catch (error) {
+    res.status(500).json({ success:false,
+      message: "Error verifying OTP",
+      error:error.message
+     });
+  }
 };

@@ -18,6 +18,7 @@ import { Calories } from "../Components/Features/CaloriesCounter/Calories";
 import BMI from "../Components/Features/BMI/BMI1/BMI";
 import BMI2 from "../Components/Features/BMI/BMI2/BMI2";
 import BMI3 from "../Components/Features/BMI/BMI3/BMI3";
+import EmailVerification from "@/Components/Authentication/EmailVerification";
 
 const router = createBrowserRouter([
   // Public Routes
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       { path: "", element: <Login /> },  // default is login
       { path: "login", element: <Login /> },
       { path: "signup", element: <Register /> },
+      { path: "verify-email", element: <EmailVerification /> },
     ],
   },
   // Protected Routes inside layout
