@@ -15,14 +15,23 @@ export const Signup = async (req, res) => {
     const existingPendingUser = await PendingUser.findOne({email});
     if(existingPendingUser)
     {
-      res.status(400).json({
+      return res.status(400).json({
         success:false,
         message:"Please Verify Your Email First",
       });
     };
+    // ! I have write the resposne code above because , as i user clikc on signup it will directlt redirect to otp verification page and the other process like generate otp and sending email will done after that , if i put this response at the end then the it takes some time to generate otp and sending email till then user will stucck on the signup page , which will give bad user experience , and if out of frustration user click on signup many times it will gives error.
+    res.status(200).json({
+      success: true,
+      message: "Signup successful. Please verify OTP sent to email.",
+      // user: { ...PENDING_USER._doc, password: undefined },
+    });
+
     const hash = await bcrypt.hash(password, 10);
     const otp = generateOTP();
+
     console.log("Sending email to:", email);
+    
     await sendMail({
       to: email,
       subject: "Smart Eats OTP Verification",
@@ -34,17 +43,13 @@ export const Signup = async (req, res) => {
       <p>Regards,<br/>SmartEats Team</p>
     </div>`,
     });
-    const PENDING_USER = await PendingUser.create({
+    await PendingUser.create({
       name,   
       email,
       password: hash,
       otp,
     });
-    res.status(200).json({
-      success: true,
-      message: "Signup successful. Please verify OTP sent to email.",
-      user: { ...PENDING_USER._doc, password: undefined },
-    });
+   
   } catch (error) {
     console.error("Error:", error.message); 
     res.status(500).json({
@@ -105,7 +110,7 @@ export const verifyOTP = async (req, res) => {
     }
     if(PENDING_USER.expiresAt < new Date())
     {
-      await PendingUser.deleteOne({_id:PendingUser._id});
+      await PendingUser.deleteOne({_id:PENDING_USER._id});
       return res.status(400).json({ success: false, message: "OTP Expired"});
     }
     const {name,email,password} = PENDING_USER;
@@ -116,7 +121,7 @@ export const verifyOTP = async (req, res) => {
       isVerified:true
     })
     await USER.save();
-    await PendingUser.deleteOne({ _id: PendingUser._id });
+    await PendingUser.deleteOne({ _id: PENDING_USER._id });
     const token = Token(USER);
     res.cookie("token", token, {
       httpOnly: true,
