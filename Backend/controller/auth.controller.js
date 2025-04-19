@@ -20,6 +20,7 @@ export const Signup = async (req, res) => {
         message:"Please Verify Your Email First",
       });
     };
+    
     // ! I have write the resposne code above because , as i user clikc on signup it will directlt redirect to otp verification page and the other process like generate otp and sending email will done after that , if i put this response at the end then the it takes some time to generate otp and sending email till then user will stucck on the signup page , which will give bad user experience , and if out of frustration user click on signup many times it will gives error.
     res.status(200).json({
       success: true,

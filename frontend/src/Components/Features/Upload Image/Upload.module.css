@@ -1,90 +1,133 @@
-
 .main_conatiner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 90vh;
-    background-color: var(--body-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: var(--body-color);
+  padding: 2rem;
+}
 
-  }
-  .main_box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 78%;
-    height: 70%;
-    background-color: var(--sidebar-color);
-    border-radius: 1.1rem;
-    gap: 50px;
-    padding: 40px;
-  }
-  .upload_box {
-    display: flex;
-    flex-direction: column;
-    border: 2px dotted grey;
-    justify-content: center;
-    align-items: center;
-    height: 82%;
-    width: 96%;
-    border-radius: 1.1rem;
-    margin-top: 1rem;
-    
-  }
-  .img_box {
-    /* border:2px solid red;  */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .img_box img {
-    width: 20%;
-  }
-  .main_box_text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .main_box_text h2{
-    color: var(--dark-text);
-  }
-  .main_box_text p {
-    color: var(--text-color);
-    letter-spacing: 1px;
-    margin-top: 10px;
-  }
-  .main_button_box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.4rem;
-    margin-top: 1rem;
-  }
-  .main_button_box button {
-    padding: 7px 21px;
-    transition: transform 0.3s ease-in-out;
-    background-color: var(--primary-color);
-    border: 2px solid white;
-    border-radius: 5px;
-    text-align: center;
-    color: var(--toggle-color);
+.main_conatiner.dark {
+  background-color: var(--dark-body-color);
+}
 
-  }
-  .main_button_box button:hover {
-    transform: scale(1.1);
-  }
-  .footer_cont {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100%;
-    margin-left: 1.3rem;
-    color: var(--text-color);
-  }
-  .main_button_box button svg {
-    margin-right: 8px;
-  }
-  
+.main_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 2.5rem;
+  background-color: var(--sidebar-color);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  gap: 1.5rem;
+}
+
+.main_box.dark {
+  background-color: var(--dark-sidebar-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.upload_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 3rem 2rem;
+  border: 2px dashed var(--border-color);
+  border-radius: 12px;
+  background-color: var(--upload-bg);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.upload_box:hover {
+  border-color: var(--primary-color);
+  background-color: var(--upload-bg-hover);
+}
+
+.img_box img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.main_box_text {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.main_box_text h2 {
+  color: var(--dark-text);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.main_box_text p {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.main_button_box {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.main_button_box input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.upload_button {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+
+.upload_button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upload_button svg {
+  margin-right: 8px;
+}
+.submit_button{
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 3px solid black;
+  color: var(--dark-body-color);
+  cursor: pointer;
+}
+.footer_cont {
+  width: 100%;
+  text-align: center;
+  color: var(--text-color);
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 1rem;
+}

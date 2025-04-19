@@ -7,6 +7,7 @@ import viewRoutes from './routing/view.routes.js';
 import passport from 'passport';
 import './config/Passport.js';
 import cors from 'cors';
+import uploadRoutes from './routing/upload.routes.js';
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,6 +27,7 @@ app.use(cors({
 // app.set('view engine','ejs');
 
 app.use('/auth/smarteats',authRoutes);
+app.use('/upload/smarteats',uploadRoutes);
 app.use('/',viewRoutes);
 
 
