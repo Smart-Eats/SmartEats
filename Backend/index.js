@@ -28,7 +28,7 @@ app.use(cors({
 
 app.use('/auth/smarteats',authRoutes);
 app.use('/upload/smarteats',uploadRoutes);
-app.use('/',viewRoutes);
+app.use('/data',viewRoutes);
 
 
 export default app;

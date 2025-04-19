@@ -61,9 +61,9 @@ const Sidebar = () => {
                 </NavLink>
               </li>
               <li className="nav-link">
-              <NavLink to="/layout/meal">
-                  <img src="/Images/meal.png" alt="" srcset="" className="icon img_icon"/>
-                  <span className="text nav-text">Meal Planning</span>
+              <NavLink to="/layout/result">
+                  <img src="/Images/preview.png" alt="" srcset="" className="icon img_icon"/>
+                  <span className="text nav-text">Output</span>
                 </NavLink>
               </li>
               <li className="nav-link">

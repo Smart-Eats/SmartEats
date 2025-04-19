@@ -3,6 +3,7 @@ import sharp from 'sharp';
 import { ImageData } from '../model/imageText.model.js';
 import OpenAI from 'openai';
 import dotenv from 'dotenv';
+import { user } from '../model/user.model.js';
 
 dotenv.config();
 
@@ -72,7 +73,7 @@ export const ImageUpload = async (req, res) => {
         messages: [
           {
             role: 'user',
-            content: `The following text is extracted from an image of an ingredient list on a packaged food product, likely a protein supplement, formatted as a comma-separated list (e.g., "INGREDIENTS: Whey protein concentrate, Soya protein isolate, Maltodextrin"). It may contain nutritional ingredients (e.g., "Whey protein concentrate," "Soya protein isolate," "Maltodextrin," "Inulin"), chemical terms (e.g., "High oleic sunflower oil powder (HOSO)"), and phrases like "CONTAINS PERMITTED AND ADDED FLAVOUR." Correct only OCR errors (e.g., stray characters like "¢," "€," "AGHTTRISS," misplaced letters like "teh" to "the") and obvious misspellings (e.g., "Maltodexin" to "Maltodextrin," "lodised" to "Iodised"). Do not change capitalization, punctuation, or terminology unless it is a clear OCR or spelling error. Preserve nutritional terms, chemical names, and list formatting (comma-separated, no trailing comma). Ensure phrases like "CONTAINS PERMITTED AND ADDED FLAVOUR" are preserved. Output ONLY the corrected text in the format "INGREDIENTS: Item1, Item2, Item3" or include additional phrases like "CONTAINS..." if present, with no explanations or additional content: if the text is not valid text related to ingredients give result like this is not a valid image \n\n${extractedText}`,
+            content: `The following text is extracted from an image of an ingredient list on a packaged food product, likely a protein supplement, formatted as a comma-separated list (e.g., "INGREDIENTS: Whey protein concentrate, Soya protein isolate, Maltodextrin"). It may contain nutritional ingredients (e.g., "Whey protein concentrate," "Soya protein isolate," "Maltodextrin," "Inulin"), chemical terms (e.g., "High oleic sunflower oil powder (HOSO)"), and phrases like "CONTAINS PERMITTED AND ADDED FLAVOUR." Correct only OCR errors (e.g., stray characters like "¢," "€," "AGHTTRISS," misplaced letters like "teh" to "the") and obvious misspellings (e.g., "Maltodexin" to "Maltodextrin," "lodised" to "Iodised"). Do not change capitalization, punctuation, or terminology unless it is a clear OCR or spelling error. Preserve nutritional terms, chemical names, and list formatting (comma-separated, no trailing comma). Ensure phrases like "CONTAINS PERMITTED AND ADDED FLAVOUR" are preserved. Output ONLY the corrected text in the format "Item1, Item2, Item3" or include additional phrases like "CONTAINS..." if present, with no explanations or additional content: if the text is not valid text related to ingredients give result like this is not a valid image \n\n${extractedText}`,
           },
         ],
         max_tokens: 1000,
@@ -93,7 +94,7 @@ export const ImageUpload = async (req, res) => {
     correctedText = correctedText
       .replace(/[^a-zA-Z0-9,\s&().-]/g, '') // Remove stray symbols
       .replace(/\s+/g, ' ') // Normalize spaces
-      .replace(/8/g, '&') // Fix common OCR error for &
+      // .replace(/8/g, '&') // Fix common OCR error for &
       .replace(/,+/g, ',') // Remove duplicate commas
       .replace(/,\s*$/, '') // Remove trailing comma
       .trim();
@@ -107,14 +108,19 @@ export const ImageUpload = async (req, res) => {
     console.log('Corrected Text:', correctedText);
 
     // Save to database
-    await ImageData.create({
+    const {email} = req.user;
+    const USER = await user.findOne({email})
+
+    const IMAGE = await ImageData.create({
+      users:[USER._id],
       image: {
         data: imageBuffer,
         type: req.file.mimetype,
       },
       extractedText: correctedText,
     });
-
+    USER.imageData.push(IMAGE._id);
+    await USER.save();
     res.status(200).json({
       success: true,
       message: 'Image processed and saved',

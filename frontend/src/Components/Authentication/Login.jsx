@@ -3,11 +3,13 @@ import styles from "./Login.module.css";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
     const apiURL = import.meta.env.VITE_BACKEND_URL;
+    const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -22,9 +24,14 @@ const Login = () => {
         {
           email,
           password,
-        }
+        },
+        // ? Include credentials (like cookies) with the request 
+        // *Without withCredentials: true:The backend might send a Set-Cookie (e.g. token=abc123)But the browser will not store or send it in the next requests.
+        // *With withCredentials: true:Your browser stores the cookie (token) properly.
+        { withCredentials: true }
       );
       toast.success(response.data.message);
+      navigate("/layout/home");
       setEmail("");
       setPassword("");
     } catch (err) {

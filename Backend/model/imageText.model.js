@@ -1,18 +1,25 @@
 import mongoose from "mongoose";
 
 const ImageTextSchema = mongoose.Schema({
-    image:{
-        data:Buffer,
-        contentType:String
+  users: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
-    extractedText:{
-        type:String,
-        required:false
-    },
-    uploadedAt:{
-        type:Date,
-        default:Date.now
-    }
+  ],    
+
+  image: {
+    data: Buffer,
+    contentType: String,
+  },
+  extractedText: {
+    type: String,
+    required: false,
+  },
+  uploadedAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-export const ImageData =  mongoose.model("ImageData",ImageTextSchema);
+export const ImageData = mongoose.model("ImageData", ImageTextSchema);

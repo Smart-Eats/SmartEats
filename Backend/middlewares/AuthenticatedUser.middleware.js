@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
+dotenv.config();
 export const AuthenticateUser = (req, res, next) => {
   const token = req.cookies.token;
  try {
