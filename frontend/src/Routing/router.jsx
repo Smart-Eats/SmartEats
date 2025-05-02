@@ -20,6 +20,7 @@ import BMI2 from "../Components/Features/BMI/BMI2/BMI2";
 import BMI3 from "../Components/Features/BMI/BMI3/BMI3";
 import EmailVerification from "@/Components/Authentication/EmailVerification";
 import Result from "@/Components/Features/Results/Result";
+import HealthProfileForm from "@/Components/HealthForm/HealthProfileModal";
 
 const router = createBrowserRouter([
   // Public Routes
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
       { path: "upload", element: <Upload /> },
       { path: "result", element: <Result /> },
       { path: "calorie-counter", element: <Calories /> },
+      { path: "health-form", element: <HealthProfileForm /> },
       { path: "bmi-calculator", element: <BMI /> },
       { path: "bmi-calculator/select", element: <BMI2 /> },
       { path: "bmi-calculator/select/result", element: <BMI3 /> },

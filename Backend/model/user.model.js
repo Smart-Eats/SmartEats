@@ -29,12 +29,43 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    // uploaded image array of a particular user
     imageData: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "ImageData",
       },
     ],
+    // health data for user
+    healthData: {
+      age: {
+        type: Number,
+
+      },
+      weight: {
+        type: Number,
+
+      },
+      height: {
+        type: Number,
+
+      },
+      gender: {
+        type: String,
+        enum: ["male", "female", "other"],
+
+      },
+      diabetes: {
+        type: Boolean,
+      },
+      bloodPressure: {
+        type: Boolean,
+      },
+      dietaryPreference: {
+        type: String,
+        enum: ["Vegetarian", "Vegan", "Non-Veg"],
+      },
+    },
   },
   { timestamps: true }
 );

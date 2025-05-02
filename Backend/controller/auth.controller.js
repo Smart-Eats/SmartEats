@@ -89,7 +89,7 @@ export const Login = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Internal Server Error",
-      error: error.messsage,
+      error: error.message,
     });
   }
 };
@@ -119,7 +119,7 @@ export const verifyOTP = async (req, res) => {
       name,
       email,
       password,
-      isVerified:true
+      isVerified:true,
     })
     await USER.save();
     await PendingUser.deleteOne({ _id: PENDING_USER._id });
