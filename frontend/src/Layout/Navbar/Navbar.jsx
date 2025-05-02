@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import styles from "./Navbar.module.css";
-import { DarkMode } from "../../Store/DarkModeStore";
 import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
-  const { isDarkMode } = useContext(DarkMode);
   return (
-    <nav className={`${styles.navbar} ${isDarkMode ? styles.dark : ""}`}>
+    <nav className={styles.navbar}>
       <div className={styles.nav_container}>
         <ul className={styles.navbar_links}>
           <li>

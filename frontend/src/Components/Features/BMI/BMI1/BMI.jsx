@@ -11,8 +11,8 @@ const BMI = () => {
         <h1>Choose One</h1>
       </div>
       <div className={styles.images}>
-        <img src="/Images/BMI/girl_bmi.png" alt="" srcset="" />
-        <img src="/Images/BMI/men_bmi.png" alt="" srcset="" />
+        <img src="/Images/BMI/girl_bmi.png" alt="" srcSet="" />
+        <img src="/Images/BMI/men_bmi.png" alt="" srcSet="" />
       </div>
       <div className={styles.buttons}>
         <button type="button" onClick={()=>{navigate("/layout/bmi-calculator/select")}}>Female</button>

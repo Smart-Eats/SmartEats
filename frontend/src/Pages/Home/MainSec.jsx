@@ -25,7 +25,7 @@ const MainSec = () => {
           <h1>Welcome to Smart Eats</h1>
           <p>Discover a smarter way to manage your meals and nutrition.</p>
           <button>Get Started</button>
-          <img src="/Images/tikka.jpeg" alt="" srcset="" />
+          <img src="/Images/tikka.jpeg" alt="" srcSet="" />
         </div>
       </div>
 

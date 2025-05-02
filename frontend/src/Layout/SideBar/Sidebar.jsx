@@ -1,13 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Sidebar.css"; 
-import { DarkMode } from "../../Store/DarkModeStore";
 import {NavLink, useNavigate} from 'react-router-dom'
-import { GoUpload } from "react-icons/go";
+
 const Sidebar = () => {
   const navigate = useNavigate()
   
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const {isDarkMode,setIsDarkMode} = useContext(DarkMode);
     useEffect(()=>{
     setIsSidebarOpen(true);
   },[])
@@ -15,10 +13,6 @@ const Sidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle("dark", !isDarkMode);
-  };
 
   return (
     <>
@@ -26,7 +20,7 @@ const Sidebar = () => {
         <header>
           <div className="image-text">
             <span className="image">
-              <img src="/Images/logo.jpg" alt="Logo" onClick={()=>{navigate('/')}}/>
+              <img src="/Images/logo.jpg" alt="Logo" onClick={()=>{navigate('/layout/home')}}/>
             </span>
             <div className="text logo-text">
               <span className="name"><span className="firsTLetter">S</span>mart </span>
@@ -50,25 +44,25 @@ const Sidebar = () => {
               </li>
               <li className="nav-link">
               <NavLink to="/layout/calorie-counter">
-                  <img src="/Images/calories.png" className="icon img_icon" alt="" srcset="" />
+                  <img src="/Images/calories.png" className="icon img_icon" alt="" srcSet="" />
                   <span className="text nav-text">Calorie Counter</span>
                 </NavLink>
               </li>
               <li className="nav-link">
               <NavLink to="/layout/bmi-calculator">
-                  <img src="/Images/bmi.png" className="icon img_icon" alt="" srcset="" />
+                  <img src="/Images/bmi.png" className="icon img_icon" alt="" srcSet="" />
                   <span className="text nav-text">BMI</span>
                 </NavLink>
               </li>
               <li className="nav-link">
               <NavLink to="/layout/result">
-                  <img src="/Images/preview.png" alt="" srcset="" className="icon img_icon"/>
+                  <img src="/Images/preview.png" alt="" srcSet="" className="icon img_icon"/>
                   <span className="text nav-text">Output</span>
                 </NavLink>
               </li>
               <li className="nav-link">
-              <NavLink to="/layout/chatBot">
-                  <img src="/Images/chatbot.png" className="icon img_icon" alt="" srcset="" />
+              <NavLink to="/layout/health-form">
+                  <img src="/Images/form.png" className="icon img_icon" alt="" srcSet="" />
                   <span className="text nav-text">Chat Bot</span>
                 </NavLink>
               </li>
@@ -83,18 +77,7 @@ const Sidebar = () => {
               </a>
             </li>
 
-            <li className="mode">
-              <div className="sun-moon">
-                <i className="bx bx-moon icon moon"></i>
-                <i className="bx bx-sun icon sun"></i>
-              </div>
-              <span className="mode-text text">
-                {isDarkMode ? "Light mode" : "Dark mode"}
-              </span>
-              <div className="toggle-switch" onClick={toggleDarkMode}>
-                <span className="switch"></span>
-              </div>
-            </li>
+            
           </div>
         </div>
       </nav>

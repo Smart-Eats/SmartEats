@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './UserProfile.module.css';
 import { useContext } from 'react';
-import { DarkMode } from '../../Store/DarkModeStore';
+
 
 const UserProfile = () => {
-  const { isDarkMode } = useContext(DarkMode);
+
 
   // Example user data
   const user = {
@@ -28,7 +28,7 @@ const UserProfile = () => {
   const bmi = calculateBMI(user.weight, user.height);
 
   return (
-    <div className={`${styles.container} ${isDarkMode ? styles.dark : ""}`}>
+    <div className={styles.container}>
       <div className={`${styles.item} ${styles.user_data}`}>
         <div className={styles.image}>
           <img src="./Images/userprofile/men1.png" alt="User Profile" />

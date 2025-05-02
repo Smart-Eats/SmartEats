@@ -3,7 +3,7 @@ import styles from "./Upload.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
-import { DarkMode } from "../../../Store/DarkModeStore";
+
 import axios from "axios";
 import { Toaster,toast } from "react-hot-toast";
 const Upload = () => {
@@ -44,11 +44,10 @@ const Upload = () => {
     }
   };
 
-  const { isDarkMode } = useContext(DarkMode);
 
   return (
     <>
-      <div className={`${styles.main_conatiner} ${isDarkMode ? `${styles.dark}` : ""}`}>
+      <div className={styles.main_conatiner}>
         <Toaster />
         <div className={styles.main_box}>
           <div className={styles.upload_box}>
