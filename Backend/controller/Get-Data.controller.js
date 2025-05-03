@@ -2,7 +2,7 @@ import { user } from "../model/user.model.js";
 
 export const OCR_RESULTS = async (req, res) => {
   try {
-    const { email } = req.user;
+    const { email,id } = req.user;
     const USER = await user.findOne({ email }).populate({
       path: "imageData",
       options: {
@@ -22,6 +22,7 @@ export const OCR_RESULTS = async (req, res) => {
     res.status(200).json({
       success: true,
       text: ocrData,
+      user_ID:id
     });
   } catch (error) {
     console.log(error.message);

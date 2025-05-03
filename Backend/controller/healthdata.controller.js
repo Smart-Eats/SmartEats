@@ -1,8 +1,17 @@
 import { user } from "../model/user.model.js";
+import { Harmful_Ingredients } from "../model/harmful_Ingredients.model.js";
 export const HealthDataForm = async (req, res) => {
   try {
     const { email } = req.user;
-    const { age, height, weight, gender, diabetes, bloodPressure,dietaryPreference } = req.body;
+    const {
+      age,
+      height,
+      weight,
+      gender,
+      diabetes,
+      bloodPressure,
+      dietaryPreference,
+    } = req.body;
     const updatedUser = await user.findOneAndUpdate(
       { email },
       {
@@ -16,7 +25,7 @@ export const HealthDataForm = async (req, res) => {
           "healthData.dietaryPreference": dietaryPreference,
         },
       },
-      {new:true}
+      { new: true }
     );
     if (!updatedUser) {
       return res
@@ -24,12 +33,65 @@ export const HealthDataForm = async (req, res) => {
         .json({ success: false, message: "User Not Found" });
     }
     res.status(200).json({
-        success:true,
-        message: "Health profile saved successfully",
-        healthProfile: updatedUser.healthData,
-      });
+      success: true,
+      message: "Health profile saved successfully",
+      healthProfile: updatedUser.healthData,
+    });
   } catch (error) {
     console.error("Error updating health profile:", error);
-    res.status(500).json({ message: "Server error while updating health data" });
+    res
+      .status(500)
+      .json({ message: "Server error while updating health data" });
+  }
+};
+
+export const AnalyzeResult = async (req, res) => {
+  try {
+    const { ocrIngredents, userId } = req.body;
+
+    const USER = await user.findById(userId); // Get user
+    if (!USER) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
+
+    const harmfulDocument = await Harmful_Ingredients.findOne(); 
+    const harmfulIngredients = harmfulDocument.ingredients;
+
+    const result = [];
+
+    ocrIngredents.forEach((ingredient) => {
+      const match = harmfulIngredients.find((item) => {
+        const allNames = [
+          item.name.toLowerCase(),
+          ...item.aliases.map((a) => a.toLowerCase()),
+        ];
+        return allNames.includes(ingredient.trim().toLowerCase());
+      });
+
+      if (match) {
+        const userData = USER.healthData;
+
+        const isDietOk =
+          match.diet[
+            userData.dietaryPreference.toLowerCase().replace("-", "_")
+          ];
+        const riskDiabetes = userData.diabetes ? match.risks.diabetes : "none";
+        const riskBP = userData.bloodPressure? match.risks.high_blood_pressure: "none";
+         if (!isDietOk || riskDiabetes !== "low" || riskBP !== "low") {
+          result.push({
+            ingredient: match.name,
+            aliases: match.aliases,
+            reason: match.warning,
+          });
+        }
+      }
+    });
+
+    res.json({ harmful: result });
+  } catch (error) {
+    console.error("Error analyzing result:", error);
+    res.status(500).json({ message: "Server error during analysis" });
   }
 };
