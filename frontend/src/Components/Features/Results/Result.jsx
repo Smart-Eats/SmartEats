@@ -19,7 +19,7 @@ const Result = () => {
         const textArray = () => {
           return ocrText.split(",").map((item) => item.trim().toLowerCase());
         };
-        // passing the data to backend
+        // passing the data to backend for anaysis of result 
         const analyzeData = await axios.post(
           `${apiURL}/healthData/smarteats/analyze-result`,
           { ocrIngredents: textArray(), userId: userId },
