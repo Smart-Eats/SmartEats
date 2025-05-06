@@ -5,8 +5,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
+    gap: 20px;
+    padding:  2rem;
     max-width: 500px;
     margin: 4rem auto;
     background: #ffffff;
@@ -48,7 +48,7 @@
 
 .girlImage {
     width: 180px;
-    height: 250px;
+    height: 200px;
     object-fit: contain;
     border-radius: 10px;
     position: relative;

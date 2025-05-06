@@ -49,7 +49,7 @@ const Sidebar = () => {
                 </NavLink>
               </li>
               <li className="nav-link">
-              <NavLink to="/layout/bmi-calculator">
+              <NavLink to="bmi-calculator/select">
                   <img src="/Images/bmi.png" className="icon img_icon" alt="" srcSet="" />
                   <span className="text nav-text">BMI</span>
                 </NavLink>

@@ -1,19 +1,26 @@
-/* BMI2.module.css */
-
+.main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--body-color); 
+    padding: 1rem;
+}
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
-    max-width: 500px;
-    margin: 4rem auto;
+    gap: 1rem;
+    padding: 1.5rem;
+    max-width: 420px; 
+    margin: 2rem auto; 
     background: var(--sidebar-color);
     border-radius: 1.5rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     height: auto;
 }
+
 
 .backBtn {
     align-self: flex-start;
@@ -26,12 +33,30 @@
     text-align: center;
 }
 
-/* .heading h1 {
-    font-size: 2rem;
-    color: #333;
+.welcomeMessage {
+    text-align: center;
+    color: var(--text-color);
     font-family: "Poppins", sans-serif;
-    text-transform: capitalize;
-} */
+    margin-bottom: 0rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.welcomeMessage h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.welcomeMessage h2 span {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.welcomeMessage p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: var(--primary-color-btn);
+}
 
 .images {
     display: flex;
@@ -41,7 +66,7 @@
 
 .images img {
     width: 180px;
-    height: 250px;
+    height: 170px;
     object-fit: contain;
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -55,7 +80,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 1rem;
 }
 
