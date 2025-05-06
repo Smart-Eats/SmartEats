@@ -15,7 +15,6 @@ import Register from "../Components/Authentication/Signup"; // if this is same a
 import UserProfile from "../Components/UserProfile/UserProfile";
 import Upload from "../Components/Features/Upload Image/Upload";
 import { Calories } from "../Components/Features/CaloriesCounter/Calories";
-import BMI from "../Components/Features/BMI/BMI1/BMI";
 import BMI2 from "../Components/Features/BMI/BMI2/BMI2";
 import BMI3 from "../Components/Features/BMI/BMI3/BMI3";
 import EmailVerification from "@/Components/Authentication/EmailVerification";
@@ -47,7 +46,6 @@ const router = createBrowserRouter([
       { path: "result", element: <Result /> },
       { path: "calorie-counter", element: <Calories /> },
       { path: "health-form", element: <HealthProfileForm /> },
-      { path: "bmi-calculator", element: <BMI /> },
       { path: "bmi-calculator/select", element: <BMI2 /> },
       { path: "bmi-calculator/select/result", element: <BMI3 /> },
     ],
