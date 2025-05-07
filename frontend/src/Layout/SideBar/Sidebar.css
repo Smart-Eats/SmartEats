@@ -339,3 +339,29 @@ body.dark .switch::before {
 body.dark .home .text {
   color: var(--text-color);
 }
+.logout-button {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  transition: var(--tran-03);
+  background-color: transparent;
+}
+
+.logout-button:hover {
+  background-color: var(--primary-color);
+}
+
+.logout-button .icon,
+.logout-button .text {
+  color: var(--text-color);
+  transition: var(--tran-03);
+}
+
+.logout-button:hover .icon,
+.logout-button:hover .text {
+  color: var(--sidebar-color);
+}
