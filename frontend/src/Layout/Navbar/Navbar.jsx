@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "./Navbar.module.css";
 import { useNavigate } from "react-router-dom";
 const Navbar = () => {
@@ -9,7 +9,7 @@ const Navbar = () => {
         <ul className={styles.navbar_links}>
           <li>
             <div className={styles.img_div}> 
-              <img src="/Images/cat.jpg" className={styles.nav_img} alt="" onClick={()=>{navigate('/userProfile')}}/>
+              <img src="/Images/cat.jpg" className={styles.nav_img} alt="" onClick={()=>{navigate('/layout/user-profile')}}/>
             </div>
           </li>
         </ul>

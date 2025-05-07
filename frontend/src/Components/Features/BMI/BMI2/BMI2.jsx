@@ -1,45 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./BMI2.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { UserStore } from "@/Store/UserInfo.Store";
 
 const BMI2 = () => {
-  const apiUrl = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate();
-  const [height, setHeight] = useState(0);
-  const [weight, setWeight] = useState(0);
-  const [name, setName] = useState("");
-  const[gender,setGender] = useState("");
+  const[data,setUserData] = useState({});
   const [loading, setLoading] = useState(true);
+  // ! i have created a store userstore where all the data of user is comming
+  const{handleGetUserData} = useContext(UserStore);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/data/bmi-user-data`, {
-          withCredentials: true,
-        });
-        // console.log(response.data);
-        const { name, gender,age,height,weight} = response.data;
-        // console.log(name);
-        // console.log(gender);
-        setHeight(height);
-        setWeight(weight);
-        setName(name);
-        setGender(gender);
+        const userData = await handleGetUserData();
+        setUserData(userData);
       } catch (error) {
-        console.error("Error fetching BMI data", error);
-        alert("There was an error fetching user data.");
+        console.error("Error fetching user data", error);
       } finally {
         setLoading(false);
       }
     };
     fetchData();
   }, []);
- 
   const calculateBmi = () => {
-    const heightM = height/100;
-    const bmi = weight/(heightM*heightM);
+    const heightM = data.height/100;
+    const bmi = data.weight/(heightM*heightM);
     return bmi;
   }
 
@@ -51,32 +38,32 @@ const BMI2 = () => {
       <div className={styles.container}>
         <div className={styles.welcomeMessage}>
           <h2>
-            Welcome, <span>{name}</span> 👋
+            Welcome, <span>{data.name}</span> 👋
           </h2>
         </div>
         <div className={styles.images}>
           {/* <img src="/Images/BMI/girl_bmi.png" alt="BMI Illustration" /> */}
-          {gender==='female'?<img src="/Images/BMI/girl_bmi.png" alt="BMI Illustration" />:<img src="/Images/BMI/men_bmi.png" alt="BMI Illustration" />}
+          {data.gender==='female'?<img src="/Images/BMI/girl_bmi.png" alt="BMI Illustration" />:<img src="/Images/BMI/men_bmi.png" alt="BMI Illustration" />}
         </div>
         <div className={styles.ranges}>
           <div className={styles.rangeContainer}>
-            <label>Height: {height} cm</label>
+            <label>Height: {data.height} cm</label>
             <input
               type="range"
               min="100"
               max="220"
-              value={height}
+              value={data.height}
               // readOnly
               disabled
             />
           </div>
           <div className={styles.rangeContainer}>
-            <label>Weight: {weight} kg</label>
+            <label>Weight: {data.weight} kg</label>
             <input
               type="range"
               min="30"
               max="200"
-              value={weight}
+              value={data.weight}
               // readOnly
               disabled
             />
@@ -86,7 +73,7 @@ const BMI2 = () => {
           <button
             onClick={() => {
               const bmi = calculateBmi();
-              navigate("/layout/bmi-calculator/select/result", {state:{bmi,gender}});
+              navigate("/layout/bmi-calculator/select/result", {state:{bmi,gender:data.gender}});
 
             }}
           >
