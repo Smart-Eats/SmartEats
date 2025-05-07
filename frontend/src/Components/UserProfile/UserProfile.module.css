@@ -160,8 +160,12 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.healthGoals li::before {
+.listIcon::before {
     content: "✔️";
+    font-size: 1.5rem;
+}
+.listIconError::before {
+    content: "❌";
     font-size: 1.5rem;
 }
 

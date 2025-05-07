@@ -1,41 +1,34 @@
-import React from 'react';
-import styles from './UserProfile.module.css';
-import { useContext } from 'react';
-
+import React, { useContext, useEffect, useState } from "react";
+import styles from "./UserProfile.module.css";
+import { UserStore } from "@/Store/UserInfo.Store";
+import fa from "fontawesome";
 
 const UserProfile = () => {
-
-
-  // Example user data
-  const user = {
-    name: "Himanshu Sharma",
-    email: "sharmahimanshuvdi@gmail.com",
-    phone: "+91 9873125326",
-    age: 28,
-    weight: 75, // in kg
-    height: 175, // in cm
-    gender: "Male",
-    dietaryPreference: "Vegetarian",
-    healthGoals: ["Lose weight", "Improve stamina"],
-  };
-
-  // Calculate BMI
-  const calculateBMI = (weight, height) => {
-    const heightInMeters = height / 100;
-    return (weight / (heightInMeters * heightInMeters)).toFixed(2);
-  };
-
-  const bmi = calculateBMI(user.weight, user.height);
+  const { handleGetUserData } = useContext(UserStore);
+  const [data, setUserData] = useState({});
+  const [loader, setLoader] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await handleGetUserData();
+        setUserData(response);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      } finally {
+        setLoader(false);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className={styles.container}>
       <div className={`${styles.item} ${styles.user_data}`}>
         <div className={styles.image}>
-          <img src="./Images/userprofile/men1.png" alt="User Profile" />
-          <div className={styles.name}>{user.name}</div>
+          <img src="/Images/userprofile/men1.png" alt="User Profile" />
+          <div className={styles.name}>{data.name}</div>
           <div className={styles.contact}>
-            <div className={styles.email}>{user.email}</div>
-            <div className={styles.phone}>{user.phone}</div>
+            <div className={styles.email}>{data.email}</div>
           </div>
         </div>
       </div>
@@ -43,18 +36,28 @@ const UserProfile = () => {
       <div className={styles.item}>
         <h3>Health Information</h3>
         <div className={styles.healthInfo}>
-          <p><strong>Age:</strong> {user.age}</p>
-          <p><strong>Weight:</strong> {user.weight} kg</p>
-          <p><strong>Height:</strong> {user.height} cm</p>
+          <p>
+            <strong>Age:</strong> {data.age}
+          </p>
+          <p>
+            <strong>Weight:</strong> {data.weight} kg
+          </p>
+          <p>
+            <strong>Height:</strong> {data.height} cm
+          </p>
         </div>
       </div>
 
       <div className={styles.item}>
-        <h3>Health Goals</h3>
+        <h3>Health Status</h3>
         <ul className={styles.healthGoals}>
-          {user.healthGoals.map((goal, index) => (
-            <li key={index}>{goal}</li>
-          ))}
+          <li className={styles.listIcon}>{data.dietaryPreference}</li>
+          <li className={data.diabetes === true ? styles.listIcon : styles.listIconError}>
+            Diabetes
+          </li>
+          <li className={data.bloodPressure === true ? styles.listIcon : styles.listIconError}>
+            Blood Pressure
+          </li>
         </ul>
       </div>
     </div>
