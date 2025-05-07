@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Sidebar.css"; 
 import {NavLink, useNavigate} from 'react-router-dom'
+import axios from "axios";
 
 const Sidebar = () => {
+  const urlApi = import.meta.env.VITE_BACKEND_URL;
   const navigate = useNavigate()
   
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -13,6 +15,16 @@ const Sidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const handleLogout = async () => {
+    try {
+      await axios.get(`${urlApi}/auth/smarteats/logout`,{
+        withCredentials:true
+      });
+      navigate("/");
+    } catch (error) {
+      
+    }
+  }
 
   return (
     <>
@@ -71,10 +83,10 @@ const Sidebar = () => {
 
           <div className="bottom-content">
             <li className="">
-              <a href="#">
+              <button  onClick={handleLogout} className="logout-button">
                 <i className="bx bx-log-out icon"></i>
                 <span className="text nav-text">Logout</span>
-              </a>
+              </button>
             </li>
 
             
