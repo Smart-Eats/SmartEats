@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { UserStore } from "@/Store/UserInfo.Store";
+import { ClipLoader } from "react-spinners";
+
 
 const BMI2 = () => {
   const navigate = useNavigate();
@@ -19,7 +21,10 @@ const BMI2 = () => {
       } catch (error) {
         console.error("Error fetching user data", error);
       } finally {
-        setLoading(false);
+        setTimeout(()=>{
+          setLoading(false);
+        },2000)
+        
       }
     };
     fetchData();
@@ -31,7 +36,11 @@ const BMI2 = () => {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className={styles.loaderContainer}>
+        <ClipLoader color="#695cfe" loading={true} size={60} />
+      </div>
+    );
   }
   return (
     <div className={styles.main}>

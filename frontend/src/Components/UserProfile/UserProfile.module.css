@@ -176,3 +176,9 @@ h3 {
     text-align: center;
     margin-bottom: 15px;
 }
+.loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }

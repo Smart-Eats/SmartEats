@@ -47,7 +47,6 @@ body {
   color: #fff;
 }
 
-/* ===== Sidebar ===== */
 .sidebar {
   position: fixed;
   top: 0;
@@ -64,7 +63,6 @@ body {
   width: 88px;
 }
 
-/* ===== Reusable code - Here ===== */
 .sidebar li {
   height: 50px;
   list-style: none;
@@ -115,7 +113,6 @@ body {
   opacity: 0;
 }
 
-/* =========================== */
 .sidebar header {
   position: relative;
 }
