@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./UserProfile.module.css";
 import { UserStore } from "@/Store/UserInfo.Store";
-import fa from "fontawesome";
+import { ClipLoader } from "react-spinners";
 
 const UserProfile = () => {
   const { handleGetUserData } = useContext(UserStore);
   const [data, setUserData] = useState({});
-  const [loader, setLoader] = useState(true);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -15,12 +15,20 @@ const UserProfile = () => {
       } catch (error) {
         console.error("Error fetching user data:", error);
       } finally {
-        setLoader(false);
+        setTimeout(()=>{
+          setLoading(false);
+        },1000);
       }
     };
     fetchData();
   }, []);
-
+  if (loading) {
+    return (
+      <div className={styles.loaderContainer}>
+        <ClipLoader color="#695cfe" loading={true} size={60} />
+      </div>
+    );
+  }
   return (
     <div className={styles.container}>
       <div className={`${styles.item} ${styles.user_data}`}>
@@ -52,10 +60,20 @@ const UserProfile = () => {
         <h3>Health Status</h3>
         <ul className={styles.healthGoals}>
           <li className={styles.listIcon}>{data.dietaryPreference}</li>
-          <li className={data.diabetes === true ? styles.listIcon : styles.listIconError}>
+          <li
+            className={
+              data.diabetes === true ? styles.listIcon : styles.listIconError
+            }
+          >
             Diabetes
           </li>
-          <li className={data.bloodPressure === true ? styles.listIcon : styles.listIconError}>
+          <li
+            className={
+              data.bloodPressure === true
+                ? styles.listIcon
+                : styles.listIconError
+            }
+          >
             Blood Pressure
           </li>
         </ul>
