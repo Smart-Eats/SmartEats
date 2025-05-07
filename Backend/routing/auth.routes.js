@@ -3,6 +3,8 @@ import { Login, Logout, Signup , verifyOTP} from "../controller/auth.controller.
 import { validate } from "../middlewares/validate.middleware.js";
 import { LoginSchema, RegisterSchema } from "../validation/user.validation.js";
 import passport from "passport";
+import dotenv from 'dotenv'
+dotenv.config();
 const router = express.Router();
 
 // GOOGLE ROUTES
@@ -20,7 +22,7 @@ router.get(
         httpOnly:true,
         maxAge:24*60*60*1000 // 1 day 
     })
-    res.send("google me apka swagt h");
+    res.redirect(`${process.env.CLIENT_URL}/layout/home`)
   }
 );
 // NORMAL AUTH ROUTES

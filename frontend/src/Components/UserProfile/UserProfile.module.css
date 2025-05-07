@@ -2,11 +2,11 @@
     display: grid;
     grid-template-columns: 1.5fr 1fr; 
     grid-template-rows: auto auto; 
-    gap: 40px; 
+    gap: 20px; 
     min-height: 90vh; 
     padding: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
     background-color: var(--primary-color-light);
 }
 
@@ -34,7 +34,7 @@
     background-color: var(--sidebar-color);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease;
-    overflow: hidden; /* Ensure content doesn't overflow */
+    overflow: hidden; 
 }
 
 .item:hover {
@@ -64,7 +64,7 @@
 .image img {
     width: auto;
     height: 50%; 
-    border-radius: 50%; /* Optional: Makes the image circular */
+    border-radius: 50%; 
 }
 
 .name {

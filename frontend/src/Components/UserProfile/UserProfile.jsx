@@ -68,12 +68,7 @@ const UserProfile = () => {
             Diabetes
           </li>
           <li
-            className={
-              data.bloodPressure === true
-                ? styles.listIcon
-                : styles.listIconError
-            }
-          >
+            className={data.bloodPressure === true ? styles.listIcon: styles.listIconError}>
             Blood Pressure
           </li>
         </ul>
