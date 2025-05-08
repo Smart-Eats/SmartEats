@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Toaster,toast } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
+
 const HealthProfileForm = () => {
   const apiURL = import.meta.env.VITE_BACKEND_URL;
   const [formData, setFormData] = useState({
@@ -35,26 +36,22 @@ const HealthProfileForm = () => {
   };
 
   return (
-    
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4 sm:px-6 lg:px-8">
-      <Toaster/>
-      <div className="max-w-md mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Health Profile</h1>
-          <p className="mt-2 text-gray-600">
-            Help us personalize your experience
-          </p>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+      <Toaster />
+      <div className="max-w-md w-full">
+        <div className="text-center mb-6">
+          <h1 className="text-2xl font-bold text-gray-800">Health Profile</h1>
+          <p className="mt-1 text-sm text-gray-600">Help us personalize your experience</p>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white shadow-md rounded-lg overflow-hidden p-6"
+          className="bg-white shadow-lg rounded-lg p-6"
         >
-          <div className="space-y-6">
-
-            <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-xs font-medium text-gray-700 mb-1">
                   Age
                 </label>
                 <input
@@ -65,12 +62,12 @@ const HealthProfileForm = () => {
                   value={formData.age}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="w-full px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-xs font-medium text-gray-700 mb-1">
                   Gender
                 </label>
                 <select
@@ -78,7 +75,7 @@ const HealthProfileForm = () => {
                   value={formData.gender}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="w-full px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
                 >
                   <option value="">Select</option>
                   <option value="male">Male</option>
@@ -88,9 +85,9 @@ const HealthProfileForm = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-xs font-medium text-gray-700 mb-1">
                   Height (cm)
                 </label>
                 <input
@@ -100,12 +97,12 @@ const HealthProfileForm = () => {
                   max="250"
                   value={formData.height}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="w-full px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+                <label className="block text-xs font-medium text-gray-700 mb-1">
                   Weight (kg)
                 </label>
                 <input
@@ -115,23 +112,23 @@ const HealthProfileForm = () => {
                   max="300"
                   value={formData.weight}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="w-full px-3 py-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
                 />
               </div>
             </div>
 
             <div>
-              <h3 className="text-sm font-medium text-gray-700 mb-2">
+              <h3 className="text-sm font-semibold text-gray-700 mb-2">
                 Health Conditions
               </h3>
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <label className="flex items-center">
                   <input
                     type="checkbox"
                     name="diabetes"
                     checked={formData.diabetes}
                     onChange={handleChange}
-                    className="h-4 w-4 text-blue-600"
+                    className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                   />
                   <span className="ml-2 text-sm text-gray-700">Diabetes</span>
                 </label>
@@ -141,7 +138,7 @@ const HealthProfileForm = () => {
                     name="bloodPressure"
                     checked={formData.bloodPressure}
                     onChange={handleChange}
-                    className="h-4 w-4 text-blue-600"
+                    className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                   />
                   <span className="ml-2 text-sm text-gray-700">
                     High Blood Pressure
@@ -151,10 +148,10 @@ const HealthProfileForm = () => {
             </div>
 
             <div>
-              <h3 className="text-sm font-medium text-gray-700 mb-2">
+              <h3 className="text-sm font-semibold text-gray-700 mb-2">
                 Dietary Preference
               </h3>
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 {["Vegetarian", "Vegan", "Non-Veg"].map((option) => {
                   return (
                     <label key={option} className="flex items-center">
@@ -164,7 +161,7 @@ const HealthProfileForm = () => {
                         value={option}
                         checked={formData.dietaryPreference === option}
                         onChange={handleChange}
-                        className="h-4 w-4 text-blue-600"
+                        className="h-4 w-4 text-indigo-600 border-gray-300 focus:ring-indigo-500"
                       />
                       <span className="ml-2 text-sm text-gray-700">
                         {option}
@@ -175,10 +172,10 @@ const HealthProfileForm = () => {
               </div>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-2">
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
+                className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition-colors duration-300 text-sm font-medium"
               >
                 Save Profile
               </button>
