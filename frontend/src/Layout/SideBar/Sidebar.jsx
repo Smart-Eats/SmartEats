@@ -21,6 +21,7 @@ const Sidebar = () => {
         withCredentials:true
       });
       navigate("/");
+      
     } catch (error) {
       
     }
@@ -82,7 +83,7 @@ const Sidebar = () => {
           </div>
 
           <div className="bottom-content">
-            <li className="">
+            <li className=""> 
               <button  onClick={handleLogout} className="logout-button">
                 <i className="bx bx-log-out icon"></i>
                 <span className="text nav-text">Logout</span>

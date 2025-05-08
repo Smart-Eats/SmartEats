@@ -29,7 +29,10 @@ const EmailVerification = () => {
         otp,
       });
       toast.success(response.data.message);
-      navigate("/layout/home");
+      setTimeout(()=>{
+        navigate("/layout/home");
+      },2000);
+      
       // Clear stored Email  from localStorage after verification
       localStorage.removeItem("verificationEmail");
     } catch (error) {

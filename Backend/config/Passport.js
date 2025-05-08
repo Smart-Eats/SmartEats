@@ -17,7 +17,7 @@ passport.use(
         const { name, email, picture } = profile._json;
         let USER = await user.findOne({ email });
         if (!USER) {
-          USER = user.create({
+          USER = await user.create({
             name,
             email,
             image: picture,

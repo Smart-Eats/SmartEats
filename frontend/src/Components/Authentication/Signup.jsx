@@ -38,7 +38,10 @@ const Register = () => {
         { withCredentials: true }
       );
       localStorage.setItem("verificationEmail", email);
-      navigate("/verify-email");
+      setTimeout(()=>{
+        navigate("/verify-email");
+      },1000);
+      
       setName("");
       setEmail("");
       setPassword("");

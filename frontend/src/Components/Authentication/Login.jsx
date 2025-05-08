@@ -31,7 +31,10 @@ const Login = () => {
         { withCredentials: true }
       );
       toast.success(response.data.message);
-      navigate("/layout/home");
+      setTimeout(()=>{
+        navigate("/layout/home");
+      },1000);
+      
       setEmail("");
       setPassword("");
     } catch (err) {
