@@ -1,182 +1,157 @@
 .container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr; 
-    grid-template-rows: auto auto; 
-    gap: 20px; 
-    min-height: 90vh; 
-    padding: 50px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    background-color: var(--primary-color-light);
-}
-
-.user_data {
-    grid-column: 1 / 2; 
-    grid-row: 1 / 3; 
-    background-color: lightblue;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 20px;
+    height: 90vh;
     padding: 20px;
-    background-color: var(--sidebar-color);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease;
-}
-
-.item {
+    background-color: #f8fafc;
+    gap: 20px;
+  }
+  
+  .leftSection {
+    flex: 1;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 20px;
-    padding: 20px;
-    background-color: var(--sidebar-color);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease;
-    overflow: hidden; 
-}
-
-.item:hover {
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-}
-
-.item:nth-child(2) {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-}
-
-.item:nth-child(3) {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-}
-
-.image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%; 
-    height: 100%;
     flex-direction: column;
     gap: 20px;
-}
-
-.image img {
-    width: auto;
-    height: 50%; 
-    border-radius: 50%; 
-}
-
-.name {
+  }
+  
+  .userInfo {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .userInfo:hover {
+    transform: translateY(-5px);
+  }
+  
+  .profileImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #695cfe;
+    margin-bottom: 15px;
+  }
+  
+  .name {
     font-family: "Eagle Lake", serif;
-    font-size: 3rem;
-    color: var(--dark-text);
-}
-
-.contact {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-}
-
-.contact .email, .contact .phone {
+    font-size: 2.2rem;
+    color: #333;
+    margin: 0;
+  }
+  
+  .email {
     font-family: "Questrial", serif;
-    letter-spacing: 2px;
-    font-size: 18px;
-    color: var(--dark-text);
-}
-
-.contact .email::before, .contact .phone::before {
-    content: "✉️"; /* Email icon */
-    font-size: 1.2rem;
-    letter-spacing: 10px;
-}
-
-.contact .phone::before {
-    content: "📞"; /* Phone icon */
-}
-
-.healthInfo {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .summarySection {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .summarySection:hover {
+    transform: translateY(-5px);
+  }
+  
+  .summaryTitle {
+    font-family: "Eagle Lake", serif;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .summaryText {
+    font-family: "Questrial", serif;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  .rightSection {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    padding: 20px;
+    gap: 20px;
+  }
+  
+  .healthInfo, .healthStatus {
+    background-color: #ffffff;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.healthInfo:hover {
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .healthInfo:hover, .healthStatus:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-}
-
-.healthInfo p {
-    font-size: 1.2rem;
-    font-weight: 500;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .healthInfo h3, .healthStatus h3 {
+    font-family: "Eagle Lake", serif;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .infoList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .infoList p {
+    font-family: "Questrial", serif;
+    font-size: 1rem;
+    color: #555;
+    background: #f5f7fa;
+    padding: 8px;
     border-radius: 8px;
-    text-align: center;
-    margin: 0; /* Remove default margin */
-    
-}
-.healthInfo p strong{
-    font-family: "Cinzel", serif;
-    margin-right: 30px;
-}
-.healthInfo p:hover {
-    background: rgba(255, 255, 255, 0.25);
-}
-
-.healthGoals {
+    margin: 0;
+  }
+  
+  .infoList p strong {
+    color: #695cfe;
+    margin-right: 10px;
+  }
+  
+  .statusList {
     list-style: none;
     padding: 0;
-    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-}
-
-.healthGoals li {
+    gap: 10px;
+  }
+  
+  .listItem, .listItemError {
+    font-family: "Questrial", serif;
+    font-size: 1rem;
+    color: #555;
+    background: #f5f7fa;
+    padding: 8px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+  }
+  
+  .listItemError {
+    color: #e53e3e;
+  }
+  
+  .listIcon {
     font-size: 1.2rem;
-    padding: 15px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.healthGoals li:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.listIcon::before {
-    content: "✔️";
-    font-size: 1.5rem;
-}
-.listIconError::before {
-    content: "❌";
-    font-size: 1.5rem;
-}
-
-h3 {
-    font-family: "Eagle Lake", serif;
-    color: var(--text-color);
-    font-size: 1.8rem;
-    text-align: center;
-    margin-bottom: 15px;
-}
-.loaderContainer {
+  }
+  
+  .loaderContainer {
     display: flex;
     justify-content: center;
     align-items: center;

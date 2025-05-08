@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./BMI3.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -8,12 +8,17 @@ const BMI3 = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { bmi, gender } = location.state;
+
   const getBmiCategory = (bmi) => {
     if (bmi < 18.5) return "Underweight";
     else if (bmi >= 18.5 && bmi <= 24.9) return "Normal weight";
     else if (bmi >= 25 && bmi <= 29.9) return "Overweight";
     else return "Obese";
   };
+
+  const bmiCategory = getBmiCategory(bmi);
+  const statusClass = bmiCategory === "Underweight" || bmiCategory === "Overweight" || bmiCategory === "Obese" ? "red" : "green";
+
   return (
     <div className={styles.container}>
       <div
@@ -25,13 +30,13 @@ const BMI3 = () => {
         <FontAwesomeIcon icon={faArrowLeft} />
       </div>
       <div className={styles.imageWrapper}>
-        {/* <img
-          src="/Images/popper.gif"
-          alt="Background Animation"
-          className={styles.popper}
-        /> */}
-        {getBmiCategory(bmi)==='Normal weight' ?  <img src="/Images/popper.gif"alt="Background Animation"className={styles.popper}/> : " " }
-        {/* <img src="/Images/BMI/girl_bmi.png" alt="BMI Illustration" className={styles.girlImage} /> */}
+        {bmiCategory === "Normal weight" ? (
+          <img
+            src="/Images/popper.gif"
+            alt="Background Animation"
+            className={styles.popper}
+          />
+        ) : null}
         {gender === "female" ? (
           <img
             src="/Images/BMI/girl_bmi.png"
@@ -46,10 +51,10 @@ const BMI3 = () => {
           />
         )}
       </div>
-      <div className={styles.status}>
+      <div className={`${styles.status} ${styles[statusClass]}`}>
         <h3>Your BMI is {bmi.toFixed(2)}</h3>
         <p className={styles.category}>
-          Category: <strong>{getBmiCategory(bmi)}</strong>
+          Category: <strong>{bmiCategory}</strong>
         </p>
       </div>
 
