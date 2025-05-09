@@ -40,6 +40,7 @@ const router = createBrowserRouter([
   {
     path: "/layout",
     element: (
+      //  setting up token in localstorage to set up protected route in frontend if token is there only then user will able to access the react routes
       <ProtectedRoute>
         <AppLayout showSidebar={true} />
       </ProtectedRoute>
