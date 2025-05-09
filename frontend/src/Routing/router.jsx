@@ -20,6 +20,8 @@ import BMI3 from "../Components/Features/BMI/BMI3/BMI3";
 import EmailVerification from "@/Components/Authentication/EmailVerification";
 import Result from "@/Components/Features/Results/Result";
 import HealthProfileForm from "@/Components/HealthForm/HealthProfileModal";
+import FoodDetail from "@/Components/Features/FoodDetail/FoodDetail";
+import ProtectedRoute from "@/ProtectedRoutes/ProtectedRoute";
 
 const router = createBrowserRouter([
   // Public Routes
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
     element: <MainLoginPage />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "", element: <Login /> },  // default is login
+      { path: "", element: <Login /> }, // default is login
       { path: "login", element: <Login /> },
       { path: "signup", element: <Register /> },
       { path: "verify-email", element: <EmailVerification /> },
@@ -37,7 +39,11 @@ const router = createBrowserRouter([
   // Protected Routes inside layout
   {
     path: "/layout",
-    element: <AppLayout showSidebar={true} />,
+    element: (
+      <ProtectedRoute>
+        <AppLayout showSidebar={true} />
+      </ProtectedRoute>
+    ),
     errorElement: <ErrorPage />,
     children: [
       { path: "home", element: <Homepage /> },
@@ -48,6 +54,7 @@ const router = createBrowserRouter([
       { path: "health-form", element: <HealthProfileForm /> },
       { path: "bmi-calculator/select", element: <BMI2 /> },
       { path: "bmi-calculator/select/result", element: <BMI3 /> },
+      { path: "mydata", element: <FoodDetail /> },
     ],
   },
 ]);
