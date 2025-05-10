@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { ClipLoader } from "react-spinners";
-
+import { Toaster, toast } from "react-hot-toast";
 const FoodDetail = () => {
   const [foodItem, setFoodItem] = useState("");
   const [loading, setLoading] = useState(false);
@@ -9,6 +9,7 @@ const FoodDetail = () => {
   const apiURL = import.meta.env.VITE_BACKEND_URL;
   const handleSearch = async () => {
     setLoading(true);
+    setNutritionData(null);
     try {
       const response = await axios.post(
         `${apiURL}/healthData/smarteats/search-food-item`,
@@ -19,9 +20,16 @@ const FoodDetail = () => {
           withCredentials: true,
         }
       );
+
+      toast.success("Successfully Fetched the Nutrients Details");
       setNutritionData(response.data);
     } catch (error) {
       console.error("API error:", error);
+      if (error.response) {
+        toast.error(error.response.data.error);
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
@@ -31,13 +39,14 @@ const FoodDetail = () => {
   };
   if (loading) {
     return (
-      <div >
+      <div>
         <ClipLoader color="#695cfe" loading={true} size={60} />
       </div>
     );
   }
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-8 px-4 sm:px-6 lg:px-8">
+      <Toaster />
       <div className="max-w-3xl mx-auto">
         <header className="text-center mb-10">
           <h1 className="text-4xl font-bold text-green-800 mb-2">
@@ -81,8 +90,7 @@ const FoodDetail = () => {
         {nutritionData && (
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             <div className="p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start">
-              <div className="mb-4 sm:mb-0 sm:mr-6 flex-shrink-0 bg-yellow-100 p-4 rounded-full">
-              </div>
+              <div className="mb-4 sm:mb-0 sm:mr-6 flex-shrink-0 bg-yellow-100 p-4 rounded-full"></div>
               <div className="text-center sm:text-left">
                 <h2 className="text-3xl font-bold text-gray-800 mb-2 capitalize">
                   {nutritionData.name}
@@ -101,7 +109,7 @@ const FoodDetail = () => {
                   (per {nutritionData.servingSize})
                 </span>
               </h3>
-{/* All dats is comming from backend is the same way as the pompt given to AI */}
+              {/* All dats is comming from backend is the same way as the pompt given to AI */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 {[
                   {

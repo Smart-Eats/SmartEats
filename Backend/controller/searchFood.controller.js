@@ -1,7 +1,6 @@
 import OpenAI from "openai";
 import dotenv from "dotenv";
 
-
 dotenv.config();
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
@@ -12,7 +11,9 @@ export const SEARCH_FOOD_ITEM = async (req, res) => {
   const { foodItem } = req.body;
   try {
     const prompt = `
+    You are a food nutrition expert. 
       Provide accurate nutrition facts for ${foodItem} in JSON format with these fields:
+      Do NOT assume it is invalid unless it clearly isn’t edible or is a non-food object.
       - name (string)
       - description (string)
       - calories (number)
@@ -25,7 +26,10 @@ export const SEARCH_FOOD_ITEM = async (req, res) => {
       - vitaminC (string with unit)
       - servingSize (string)
       - benefits (array of strings)
-      
+      If it is not a food item (e.g., "car", "bike", "iPhone"), respond with:
+        {
+        "error": "Invalid input: Not a food item."
+        }
       Example response format:
       {
         "name": "banana",
@@ -57,9 +61,12 @@ export const SEARCH_FOOD_ITEM = async (req, res) => {
     });
     const content = aiResponse.choices[0].message.content;
     const nutritionData = JSON.parse(content);
+    if (nutritionData.error) {
+      return res.status(400).json({ error: nutritionData.error });
+    }
     return res.status(200).json(nutritionData);
   } catch (error) {
-    console.error('AI API error:', error);
+    console.error("AI API error:", error);
     return res.status(500).json({ error: "Failed to get nutrition data" });
   }
-};  
+};
