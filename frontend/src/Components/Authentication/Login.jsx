@@ -30,6 +30,9 @@ const Login = () => {
         // *With withCredentials: true:Your browser stores the cookie (token) properly.
         { withCredentials: true }
       );
+      //? setting up token in localstorage to set up protected route in frontend if token is there only then user will able to access the react routes
+      localStorage.setItem("token",response.data.token);
+      
       toast.success(response.data.message);
       setTimeout(()=>{
         navigate("/layout/home");

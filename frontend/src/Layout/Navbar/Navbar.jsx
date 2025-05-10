@@ -28,7 +28,7 @@ const Navbar = () => {
         <ul className={styles.navbar_links}>
           <li>
             <div className={styles.user_info}>
-            {loading ? "Loading..." : data.name || "Guest"}
+            {loading ? "Loading..." : data.name || <button className={styles.login_button} onClick={()=>{navigate('/')}}>Login</button>}
               <div className={styles.img_div}>
                 <img
                   src="/Images/cat.jpg"
