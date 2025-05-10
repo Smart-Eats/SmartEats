@@ -4,7 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 // Layouts and Pages
 import AppLayout from "../Layout/AppLayout";
 import ErrorPage from "../Components/Error/ErrorPage";
-import Homepage from "../Pages/Homepage";
+import Homepage from "../Components/Home/Homepage";
 
 // Auth Pages
 import MainLoginPage from "../Components/Authentication/MainAuthentication";
@@ -14,7 +14,6 @@ import Register from "../Components/Authentication/Signup"; // if this is same a
 // User Features
 import UserProfile from "../Components/UserProfile/UserProfile";
 import Upload from "../Components/Features/Upload Image/Upload";
-import { Calories } from "../Components/Features/CaloriesCounter/Calories";
 import BMI2 from "../Components/Features/BMI/BMI2/BMI2";
 import BMI3 from "../Components/Features/BMI/BMI3/BMI3";
 import EmailVerification from "@/Components/Authentication/EmailVerification";
@@ -51,7 +50,6 @@ const router = createBrowserRouter([
       { path: "user-profile", element: <UserProfile /> },
       { path: "upload", element: <Upload /> },
       { path: "result", element: <Result /> },
-      { path: "calorie-counter", element: <Calories /> },
       { path: "health-form", element: <HealthProfileForm /> },
       { path: "bmi-calculator/select", element: <BMI2 /> },
       { path: "bmi-calculator/select/result", element: <BMI3 /> },
