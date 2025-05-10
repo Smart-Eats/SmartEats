@@ -1,6 +1,6 @@
 import { user } from "../model/user.model.js";
 import { Harmful_Ingredients } from "../model/harmful_Ingredients.model.js";
-export const HealthDataForm = async (req, res) => {
+export const HEALTH_DATA_FORM = async (req, res) => {
   try {
     const { email } = req.user;
     const {
@@ -45,7 +45,7 @@ export const HealthDataForm = async (req, res) => {
   }
 };
 
-export const AnalyzeResult = async (req, res) => {
+export const ANALYZE_RESULT = async (req, res) => {
   try {
     const { ocrIngredents, userId } = req.body;
 
