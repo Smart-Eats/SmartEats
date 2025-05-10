@@ -13,7 +13,7 @@ export const SEARCH_FOOD_ITEM = async (req, res) => {
     const prompt = `
     You are a food nutrition expert. 
       Provide accurate nutrition facts for ${foodItem} in JSON format with these fields:
-      Do NOT assume it is invalid unless it clearly isn’t edible or is a non-food object.
+      Do NOT assume it is invalid unless it clearly isn't edible or is a non-food object.
       - name (string)
       - description (string)
       - calories (number)

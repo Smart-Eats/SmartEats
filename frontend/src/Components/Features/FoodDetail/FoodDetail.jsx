@@ -39,7 +39,7 @@ const FoodDetail = () => {
   };
   if (loading) {
     return (
-      <div>
+      <div className="flex justify-center items-center h-screen w-full">
         <ClipLoader color="#695cfe" loading={true} size={60} />
       </div>
     );
