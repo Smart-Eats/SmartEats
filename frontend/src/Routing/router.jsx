@@ -55,7 +55,7 @@ const router = createBrowserRouter([
       { path: "health-form", element: <HealthProfileForm /> },
       { path: "bmi-calculator/select", element: <BMI2 /> },
       { path: "bmi-calculator/select/result", element: <BMI3 /> },
-      { path: "mydata", element: <FoodDetail /> },
+      { path: "nutrition-finder", element: <FoodDetail /> },
     ],
   },
 ]);

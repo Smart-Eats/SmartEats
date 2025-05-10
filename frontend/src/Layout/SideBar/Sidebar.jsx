@@ -56,9 +56,9 @@ const Sidebar = () => {
                 </NavLink>
               </li>
               <li className="nav-link">
-              <NavLink to="/layout/calorie-counter">
-                  <img src="/Images/calories.png" className="icon img_icon" alt="" srcSet="" />
-                  <span className="text nav-text">Calorie Counter</span>
+              <NavLink to="/layout/nutrition-finder">
+                  <img src="/Images/nutrition-finder.png" className="icon img_icon" alt="" srcSet="" />
+                  <span className="text nav-text">Nutrition Finder</span>
                 </NavLink>
               </li>
               <li className="nav-link">
@@ -76,7 +76,7 @@ const Sidebar = () => {
               <li className="nav-link">
               <NavLink to="/layout/health-form">
                   <img src="/Images/form.png" className="icon img_icon" alt="" srcSet="" />
-                  <span className="text nav-text">Chat Bot</span>
+                  <span className="text nav-text">User Data</span>
                 </NavLink>
               </li>
             </ul>
