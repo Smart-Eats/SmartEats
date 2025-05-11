@@ -68,6 +68,56 @@
   font-weight: 500;
   transition: background-color 0.3s ease;
 }
+.uploads {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--primary-light);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-color);
+  transition: var(--tran-03);
+  cursor: default;
+}
+
+.upload_icon {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) saturate(100%) invert(45%) sepia(61%) saturate(2981%) hue-rotate(202deg) brightness(98%) contrast(94%);
+}
+
+.upload_count {
+  font-family: "Questrial", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  background-color: #f1f5ff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+
+}
+
+.uplaod_text{
+   font-size: 18px;
+}
+.upload_count::first-letter {
+  color: #ff0000;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.upload_count:hover {
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.15);
+  background-color: #e0edff;
+  cursor: default;
+}
+
 
 .login_button:hover {
   background-color: #0056b3;

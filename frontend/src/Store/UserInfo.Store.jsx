@@ -1,23 +1,54 @@
-import axios from 'axios';
-import { createContext } from 'react';
+import axios from "axios";
+import { createContext, useState } from "react";
 
 export const UserStore = createContext({
-    handleGetUserData:()=>{}
+  handleGetUserData: () => {},
+  triggerRefresh: () => {},
+  refreshUser:false,
 });
 
-const UserStoreProvider = ({children}) => {
-    const urlApi = import.meta.env.VITE_BACKEND_URL;
-    const handleGetUserData = async () => {
-        const response = await axios.get(`${urlApi}/data/user-profile-data`,{
-            withCredentials:true
-        });
-        const{name,email,age,height,weight,dietaryPreference,diabetes,gender,bloodPressure} = response.data;
-        return{name,email,age,height,weight,dietaryPreference,diabetes,gender,bloodPressure};
-    }
-    return(
-        <UserStore.Provider value={{handleGetUserData}}>
-            {children}
-        </UserStore.Provider>
-    )
-}
+const UserStoreProvider = ({ children }) => {
+  const urlApi = import.meta.env.VITE_BACKEND_URL;
+  const [refreshUser, setRefreshUser] = useState(false);
+  const handleGetUserData = async () => {
+    const response = await axios.get(`${urlApi}/data/user-profile-data`, {
+      withCredentials: true,
+    });
+    const {
+      name,
+      email,
+      age,
+      height,
+      weight,
+      dietaryPreference,
+      diabetes,
+      gender,
+      bloodPressure,
+      imageData,
+    } = response.data;
+    return {
+      name,
+      email,
+      age,
+      height,
+      weight,
+      dietaryPreference,
+      diabetes,
+      gender,
+      bloodPressure,
+      imageData,
+    };
+  };
+//   This toggles the refreshUser state.false ➡ true ➡ false ➡ true
+  const triggerRefresh = () => {
+    setRefreshUser((prev) => !prev);
+  };
+  return (
+    <UserStore.Provider
+      value={{ handleGetUserData, triggerRefresh, refreshUser }}
+    >
+      {children}
+    </UserStore.Provider>
+  );
+};
 export default UserStoreProvider;

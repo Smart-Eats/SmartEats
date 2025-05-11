@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Upload.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { useContext } from "react";
-
 import axios from "axios";
 import { Toaster,toast } from "react-hot-toast";
+import { UserStore } from "@/Store/UserInfo.Store";
+
 const Upload = () => {
   const apiURL = import.meta.env.VITE_BACKEND_URL;
   const [image, setImage] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
-  
+  const {triggerRefresh} = useContext(UserStore);
   const handleFileChange = (e) => {
     setImage(e.target.files[0]);
   };
@@ -37,6 +37,8 @@ const Upload = () => {
         withCredentials: true,
       });
       toast.success(response.data.message);
+      //! this trigger refresh will update the count valaue of the uplaod image count in the navabar 
+      triggerRefresh();
     } catch (error) {
       toast.error(error.response?.data?.message || "Uplaod Failed");
     } finally {
