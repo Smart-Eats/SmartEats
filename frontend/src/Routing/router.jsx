@@ -21,6 +21,8 @@ import Result from "@/Components/Features/Results/Result";
 import HealthProfileForm from "@/Components/HealthForm/HealthProfileModal";
 import FoodDetail from "@/Components/Features/FoodDetail/FoodDetail";
 import ProtectedRoute from "@/ProtectedRoutes/ProtectedRoute";
+import Barcode from "@/Components/Features/Barcode/Barcode";
+
 
 const router = createBrowserRouter([
   // Public Routes
@@ -49,6 +51,7 @@ const router = createBrowserRouter([
       { path: "home", element: <Homepage /> },
       { path: "user-profile", element: <UserProfile /> },
       { path: "upload", element: <Upload /> },
+      { path: "barcode", element: <Barcode /> },
       { path: "result", element: <Result /> },
       { path: "health-form", element: <HealthProfileForm /> },
       { path: "bmi-calculator/select", element: <BMI2 /> },

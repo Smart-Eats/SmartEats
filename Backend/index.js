@@ -9,6 +9,8 @@ import './config/Passport.js';
 import cors from 'cors';
 import uploadRoutes from './routing/upload.routes.js';
 import healthDataRoutes from './routing/HealthData.routes.js'
+import barcodeRoutes from './routing/barcode.routes.js';
+
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -29,6 +31,7 @@ app.use(cors({
 
 app.use('/auth/smarteats',authRoutes);
 app.use('/upload/smarteats',uploadRoutes);
+app.use('/barcode/smarteats',barcodeRoutes);
 app.use('/healthData/smarteats',healthDataRoutes)
 app.use('/data',viewRoutes);
 
