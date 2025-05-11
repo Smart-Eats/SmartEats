@@ -28,6 +28,7 @@
     "input-otp": "^1.4.2",
     "lucide-react": "^0.487.0",
     "motion": "^12.10.5",
+    "quagga": "^0.12.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",

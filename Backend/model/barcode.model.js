@@ -2,10 +2,10 @@ import mongoose from "mongoose";
 
 const barcodeSchema = mongoose.Schema(
   {
-    barcodeImg: {
-      data: Buffer,
-      contentType: String,
-    },
+    extractedBarcode: {
+    type: String,
+    required: false,
+  },
     uploadedBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
