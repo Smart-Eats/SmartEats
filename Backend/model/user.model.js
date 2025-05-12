@@ -66,6 +66,12 @@ const userSchema = mongoose.Schema(
         enum: ["Vegetarian", "Vegan", "Non-Veg"],
       },
     },
+    barcodes:[
+      {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"barcode",
+      }
+    ]
   },
   { timestamps: true }
 );
