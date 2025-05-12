@@ -3,7 +3,7 @@ import styles from "./Navbar.module.css";
 import { useNavigate } from "react-router-dom";
 import { UserStore } from "@/Store/UserInfo.Store";
 const Navbar = () => {
-  const { handleGetUserData,refreshUser } = useContext(UserStore);
+  const { handleGetUserData, refreshUser } = useContext(UserStore);
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Navbar = () => {
       }
     };
     fetchData();
-    // This effect now runs every time refreshUser changes. So if any other component calls triggerRefresh(), jaise hi image uplaod hogi true ka false hoga ya false ka true jaise hi value chenge hogi useeffect run ho jaega or count update ho haega , ye bs true ka flase , false ka true kr rha h chaye kuch bhi ho true ya flase jaise hi state change hogi page refresh ho jaega 
+    // This effect now runs every time refreshUser changes. So if any other component calls triggerRefresh(), jaise hi image uplaod hogi true ka false hoga ya false ka true jaise hi value chenge hogi useeffect run ho jaega or count update ho haega , ye bs true ka flase , false ka true kr rha h chaye kuch bhi ho true ya flase jaise hi state change hogi page refresh ho jaega
   }, [refreshUser]);
   return (
     <nav className={styles.navbar}>
@@ -41,7 +41,11 @@ const Navbar = () => {
                       className={styles.upload_icon}
                     />
                     <span className={styles.upload_count}>
-                      {data.imageData?.length + data.barcodes.length ?? 0} <span className={styles.uplaod_text}>U</span>ploads
+                      <span className={styles.upload_number}>
+                        {(data.imageData?.length ?? 0) +
+                          (data.barcodes?.length ?? 0)}
+                      </span>{" "}
+                      <span className={styles.uplaod_text}>U</span>ploads
                     </span>
                   </div>
                 </>

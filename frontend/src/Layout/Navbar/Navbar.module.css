@@ -106,7 +106,7 @@
 .uplaod_text{
    font-size: 18px;
 }
-.upload_count::first-letter {
+.upload_number {
   color: #ff0000;
   font-weight: 700;
   font-size: 20px;
