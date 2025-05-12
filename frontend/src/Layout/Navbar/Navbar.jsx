@@ -41,7 +41,7 @@ const Navbar = () => {
                       className={styles.upload_icon}
                     />
                     <span className={styles.upload_count}>
-                      {data.imageData?.length ?? 0} <span className={styles.uplaod_text}>U</span>ploads
+                      {data.imageData?.length + data.barcodes.length ?? 0} <span className={styles.uplaod_text}>U</span>ploads
                     </span>
                   </div>
                 </>

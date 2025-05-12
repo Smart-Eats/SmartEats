@@ -70,7 +70,7 @@ export const USER_PROFILE_DETAIL = async (req, res) => {
         message:"User not found"
       });
     }
-    const { name, email,imageData } = USER;
+    const { name, email,imageData,barcodes } = USER;
     const {age,height,weight,dietaryPreference,diabetes,gender,bloodPressure} = USER.healthData;
     return res.status(200).json({
       success:true,
@@ -82,7 +82,8 @@ export const USER_PROFILE_DETAIL = async (req, res) => {
       diabetes,
       gender,
       bloodPressure,
-      imageData
+      imageData,
+      barcodes
     });
   } catch (error) {
     res.status(404).json({

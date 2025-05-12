@@ -25,6 +25,7 @@ const UserStoreProvider = ({ children }) => {
       gender,
       bloodPressure,
       imageData,
+      barcodes
     } = response.data;
     return {
       name,
@@ -37,6 +38,7 @@ const UserStoreProvider = ({ children }) => {
       gender,
       bloodPressure,
       imageData,
+      barcodes
     };
   };
 //   This toggles the refreshUser state.false ➡ true ➡ false ➡ true
