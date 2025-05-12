@@ -52,7 +52,7 @@ const Barcode = () => {
             const barcodeValue = result.codeResult.code;
             console.log("Decoded barcode:", barcodeValue);
 
-            // ✅ Send barcode to backend
+            //  Send barcode to backend
             const response = await axios.post(
               `${apiURL}/barcode/smarteats/barcode-scanning`,
               { barcode_Number: barcodeValue },
