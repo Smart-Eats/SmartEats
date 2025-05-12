@@ -30,7 +30,7 @@ const EmailVerification = () => {
       });
       toast.success(response.data.message);
       setTimeout(()=>{
-        navigate("/layout/home");
+        navigate("/login");
       },2000);
       
       // Clear stored Email  from localStorage after verification
