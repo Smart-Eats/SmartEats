@@ -23,24 +23,43 @@ const HomePageContent = () => {
 
   return (
     <ModalBody>
-      <ModalContent className="text-center p-8 bg-white rounded-2xl shadow-2xl max-w-lg mx-auto animate-fade-in">
-        <h2 className="text-3xl font-extrabold text-gray-900 mb-4 tracking-tight">
-          🌟 Welcome to <span className="text-emerald-600">Smart Eats</span>!
-        </h2>
-        <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-          Let’s tailor your experience for optimal health. Just a few quick
-          questions to get started!
-        </p>
-        <button
-          onClick={() => {
-            navigate("/layout/health-form");
-          }}
-          className="bg-gradient-to-r from-emerald-500 via-green-500 to-lime-400 hover:from-emerald-600 hover:to-lime-500 text-white font-semibold text-base px-8 py-3 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300"
-        >
-          🚀 Fill Out Your Info
-        </button>
-      </ModalContent>
-    </ModalBody>
+  <ModalContent className="text-center p-10 bg-white rounded-3xl shadow-2xl max-w-lg mx-auto animate-fade-in scale-100">
+    <div className="mb-6">
+      <h2 className="text-4xl font-extrabold text-emerald-600 leading-tight tracking-tight">
+        🛡️ Let’s Personalize Your Health!
+      </h2>
+      <p className="text-gray-700 mt-4 text-base sm:text-lg font-medium leading-relaxed">
+        Your journey to smarter, healthier eating starts here. 🚀
+        <br />
+        This is <span className="text-rose-500 font-semibold">essential</span> to unlock your experience.
+      </p>
+    </div>
+
+    <div className="mb-6">
+      <img
+        src="/Images/modal/restriction.png"
+        alt="Health Form Illustration"
+        className="w-48 h-48 mx-auto animate-bounce-slow"
+      />
+    </div>
+
+    <button
+      onClick={() => {
+        navigate("/layout/health-form");
+      }}
+      className="text-black border-2 bg-yellow-200 border-red-500 font-bold text-lg px-10 py-3 rounded-full shadow-xl transform hover:scale-105 transition-all duration-300"
+
+    >
+      📝 Start Now – Fill This Form
+    </button>
+
+    {/* Optional footer message to subtly enforce */}
+    <p className="text-sm text-red-800 mt-4 italic ">
+      This is required to continue using Smart Eats.
+    </p>
+  </ModalContent>
+</ModalBody>
+
   );
 };
 
