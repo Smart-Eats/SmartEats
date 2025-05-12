@@ -4,12 +4,17 @@ import axios from "axios";
 import { Toaster, toast } from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload, faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 import Quagga from "quagga";
+
 
 const Barcode = () => {
   const apiURL = import.meta.env.VITE_BACKEND_URL;
   const [barcodeImg, setBarcodeImg] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
+
+    const navigate = useNavigate();
+
   const handleImageChange = (e) => {
     setBarcodeImg(e.target.files[0]);
   };
@@ -55,6 +60,11 @@ const Barcode = () => {
             );
 
             toast.success(response.data.message);
+            // passing the data to barcode result page without using props and context api we are using useNaviagte state to pass data
+            setTimeout(()=>{
+              navigate('/layout/barcode-result',{state:{barcode:barcodeValue}})
+            },1000);
+
           } else {
             toast.error("Failed to decode barcode.");
           }
