@@ -9,7 +9,7 @@ import { ClipLoader } from "react-spinners";
 
 const BMI2 = () => {
   const navigate = useNavigate();
-  const[data,setUserData] = useState({});
+  const[data,setUserData] = useState({ height: 160, weight: 60, gender: "male", name: "User" });
   const [loading, setLoading] = useState(true);
   // ! i have created a store userstore where all the data of user is comming
   const{handleGetUserData} = useContext(UserStore);

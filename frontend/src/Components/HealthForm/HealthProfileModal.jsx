@@ -36,7 +36,7 @@ const HealthProfileForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
+    <div className=" flex items-center justify-center bg-gradient-to-br from-indigo-50 to-blue-100 p-4">
       <Toaster />
       <div className="max-w-md w-full">
         <div className="text-center mb-6">
