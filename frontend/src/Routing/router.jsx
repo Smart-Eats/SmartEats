@@ -4,7 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 // Layouts and Pages
 import AppLayout from "../Layout/AppLayout";
 import ErrorPage from "../Components/Error/ErrorPage";
-import Homepage from "../Components/Home/Homepage";
+import HomePage from "@/Components/Home/HomePage";
 
 // Auth Pages
 import MainLoginPage from "../Components/Authentication/MainAuthentication";
@@ -23,6 +23,7 @@ import FoodDetail from "@/Components/Features/FoodDetail/FoodDetail";
 import ProtectedRoute from "@/ProtectedRoutes/ProtectedRoute";
 import Barcode from "@/Components/Features/Barcode/Barcode";
 import BarcodeResult from "@/Components/Features/Barcode/BarcodeResult";
+
 
 
 const router = createBrowserRouter([
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
     ),
     errorElement: <ErrorPage />,
     children: [
-      { path: "home", element: <Homepage /> },
+      { path: "home", element: <HomePage /> },
       { path: "user-profile", element: <UserProfile /> },
       { path: "upload", element: <Upload /> },
       { path: "barcode", element: <Barcode /> },
