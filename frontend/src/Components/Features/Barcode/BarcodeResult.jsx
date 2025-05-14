@@ -16,38 +16,37 @@ const BarcodeResult = () => {
   const [productData, setProductData] = useState(null);
   const [result, setResult] = useState([]);
 
-  useEffect(() => {
-    const fetchBarcodeData = async () => {
-      if (!barcode) {
-        toast.error("No barcode provided.");
-        setLoading(false);
-        return;
-      }
-
-      try {
-        const response = await axios.get(`${foodApi}/${barcode}.json`);
-        if (response.data.status === 0) {
-          toast.error("Product not found for this barcode.");
-          setProductData(null);
-        } else {
-          setProductData(response.data.product);
-        }
-      } catch (error) {
-        toast.error("Error fetching product data.");
-        console.error(error);
-        setProductData(null);
-      }
-    };
-
-    fetchBarcodeData();
-  }, [barcode, foodApi]);
-
-  useEffect(() => {
-    const analyzeIngredients = async () => {
-      if (!productData) {
+useEffect(() => {
+  const fetchBarcodeData = async () => {
+    if (!barcode) {
+      toast.error("No barcode provided.");
       setLoading(false); 
       return;
     }
+
+    try {
+      const response = await axios.get(`${foodApi}/${barcode}.json`);
+      if (response.data.status === 0) {
+        toast.error("Product not found for this barcode.");
+        setProductData(null);
+      } else {
+        setProductData(response.data.product);
+      }
+    } catch (error) {
+      toast.error("Error fetching product data.");
+      console.error(error);
+      setProductData(null);
+    } finally {
+      setLoading(false); 
+    }
+  };
+
+  fetchBarcodeData();
+}, [barcode, foodApi]);
+
+useEffect(() => {
+  const analyzeIngredients = async () => {
+    if (!productData) return; 
 
     if (!productData.ingredients_text) {
       toast.error("No ingredients available for this product.");
@@ -55,51 +54,47 @@ const BarcodeResult = () => {
       return;
     }
 
+    try {
+      const ocrArray = productData.ingredients_text
+        .split(",")
+        .map((item) => item.trim().toLowerCase());
 
-      try {
-        const user = await axios.get(`${apiURL}/data/ocr-result`, {
-          withCredentials: true,
-        });
-        const userId = user.data.user_ID;
+      const analyzeData = await axios.post(
+        `${apiURL}/healthData/smarteats/analyze-result`,
+        { ocrIngredents: ocrArray },
+        { withCredentials: true }
+      );
 
-        const ocrArray = productData.ingredients_text
-          .split(",")
-          .map((item) => item.trim().toLowerCase());
+      console.log("Harmful ingredients:", analyzeData.data.harmful);
+      setResult(analyzeData.data.harmful);
+    } catch (error) {
+      toast.error("Error analyzing ingredients.");
+      console.error(error);
+    } finally {
+      setLoading(false); 
+    }
+  };
 
-        const analyzeData = await axios.post(
-          `${apiURL}/healthData/smarteats/analyze-result`,
-          { ocrIngredents: ocrArray, userId },
-          { withCredentials: true }
-        );
+  analyzeIngredients();
+}, [productData]);
 
-        console.log("Harmful ingredients:", analyzeData.data.harmful);
-        setResult(analyzeData.data.harmful);
-      } catch (error) {
-        toast.error("Error analyzing ingredients.");
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+// Show loader while loading state is true
+if (loading) {
+  return (
+    <div className={styles.loaderContainer}>
+      <ClipLoader color="#695cfe" loading={true} size={60} />
+    </div>
+  );
+}
 
-    analyzeIngredients();
-  }, [productData]);
-
-  if (loading) {
-    return (
-      <div className={styles.loaderContainer}>
-        <ClipLoader color="#695cfe" loading={true} size={60} />
-      </div>
-    );
-  }
-
-  if (!productData) {
-    return (
-      <div className={styles.errorContainer}>
-        <h2>No product data found for this barcode.</h2>
-      </div>
-    );
-  }
+// Show message if no product data is found
+if (!productData) {
+  return (
+    <div className={styles.errorContainer}>
+      <h2>No product data found for this barcode.</h2>
+    </div>
+  );
+}
 
   return (
     <div className={styles.resultContainer}>

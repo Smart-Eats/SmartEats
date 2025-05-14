@@ -16,7 +16,6 @@ const Result = () => {
           withCredentials: true,
         });
         const ocrText = response.data.text;
-        const userId = response.data.user_ID;
         setData(ocrText);
         //! converting the string of ocr in array of lowercase characters
         const textArray = () => {
@@ -25,7 +24,7 @@ const Result = () => {
         // !passing the data to backend for anaysis of result
         const analyzeData = await axios.post(
           `${apiURL}/healthData/smarteats/analyze-result`,
-          { ocrIngredents: textArray(), userId: userId },
+          { ocrIngredents: textArray()},
           {
             withCredentials: true,
           }
