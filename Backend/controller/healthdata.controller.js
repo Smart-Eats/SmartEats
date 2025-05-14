@@ -47,9 +47,9 @@ export const HEALTH_DATA_FORM = async (req, res) => {
 
 export const ANALYZE_RESULT = async (req, res) => {
   try {
-    const { ocrIngredents, userId } = req.body;
-
-    const USER = await user.findById(userId); // Get user
+    const { ocrIngredents } = req.body;
+    const{ id } = req.user;
+    const USER = await user.findById(id); // Get user
     if (!USER) {
       return res
         .status(404)

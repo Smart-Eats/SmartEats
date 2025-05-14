@@ -22,7 +22,6 @@ export const OCR_RESULTS = async (req, res) => {
     res.status(200).json({
       success: true,
       text: ocrData,
-      user_ID: id,
     });
   } catch (error) {
     console.log(error.message);
