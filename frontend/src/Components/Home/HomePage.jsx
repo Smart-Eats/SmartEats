@@ -9,7 +9,7 @@ import {
   ModalBody,
   ModalContent,
   useModal,
-} from "@/components/ui/animated-modal";
+} from "../ui/animated-modal";
 import { useNavigate } from "react-router-dom";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 
