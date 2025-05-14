@@ -5,12 +5,17 @@ import { faUpload, faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { Toaster,toast } from "react-hot-toast";
 import { UserStore } from "@/Store/UserInfo.Store";
+import { useNavigate } from "react-router-dom";
 
 const Upload = () => {
   const apiURL = import.meta.env.VITE_BACKEND_URL;
+
   const [image, setImage] = useState(null);
   const [isUploading, setIsUploading] = useState(false);
   const {triggerRefresh} = useContext(UserStore);
+
+  const navigate = useNavigate();
+
   const handleFileChange = (e) => {
     setImage(e.target.files[0]);
   };
@@ -39,6 +44,7 @@ const Upload = () => {
       toast.success(response.data.message);
       //! this trigger refresh will update the count valaue of the uplaod image count in the navabar 
       triggerRefresh();
+      navigate('/layout/result');
     } catch (error) {
       toast.error(error.response?.data?.message || "Uplaod Failed");
     } finally {
