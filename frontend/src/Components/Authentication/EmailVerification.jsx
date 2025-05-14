@@ -4,7 +4,7 @@ import {
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@/components/ui/input-otp";
+} from "../ui/input-otp";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
