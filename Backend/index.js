@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
     credentials: true, // agar cookies ya auth bhej rahe ho
   }));
 //! Set view Engine Uncomment If NEEDED
