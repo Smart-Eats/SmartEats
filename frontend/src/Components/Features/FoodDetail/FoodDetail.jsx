@@ -45,7 +45,7 @@ const FoodDetail = () => {
     );
   }
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen  py-8 px-4 sm:px-6 lg:px-8">
       <Toaster />
       <div className="max-w-3xl mx-auto">
         <header className="text-center mb-10">
@@ -178,6 +178,7 @@ const FoodDetail = () => {
         <p className="text-center text-xs text-gray-500 mt-8">
           Nutritional values may vary depending on size and ripeness.
         </p>
+        <br></br>
       </div>
     </div>
   );
