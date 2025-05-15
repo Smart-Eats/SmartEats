@@ -10,6 +10,8 @@ import cors from 'cors';
 import uploadRoutes from './routing/upload.routes.js';
 import healthDataRoutes from './routing/HealthData.routes.js'
 import barcodeRoutes from './routing/barcode.routes.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);

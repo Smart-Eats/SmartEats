@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import BlurText from "./BlurText";
 import ShinyText from "./ShinyText/ShinyText";
 import styles from "./HomePage.module.css";
+import { TextGenerateEffect } from "../ui/text-generate-effect";
 import AnimatedContent from "./AnimatedContent/AnimatedContent";
 import { Link } from "react-router-dom";
 import {
@@ -11,7 +12,7 @@ import {
   useModal,
 } from "../ui/animated-modal";
 import { useNavigate } from "react-router-dom";
-import { TextGenerateEffect } from "../ui/text-generate-effect";
+
 
 const HomePageContent = () => {
   const navigate = useNavigate();
