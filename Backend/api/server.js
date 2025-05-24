@@ -1,7 +1,7 @@
-import app from './index.js';
+import app from '../index.js';
 import dotenv from 'dotenv';
-import { connectDB } from './db/Connection.js';
-import { CleanUp_Pending_User } from './utils/CleanUp-Pending-user.js';
+import { connectDB } from '../db/Connection.js';
+import { CleanUp_Pending_User } from '../utils/CleanUp-Pending-user.js';
 dotenv.config();
 
 const port = process.env.PORT||8080;
