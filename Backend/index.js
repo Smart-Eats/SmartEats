@@ -24,13 +24,27 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 app.use(passport.initialize());
+import cors from 'cors';
+
+// CORS setup
+const allowedOrigins = [process.env.CLIENT_URL, "https://smart-eats-frontend.vercel.app"];
+
 app.use(cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
-    credentials: true, // agar cookies ya auth bhej rahe ho
-  }));
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 //! Set view Engine Uncomment If NEEDED
 // app.set('view engine','ejs');
-
+app.options('*', cors());
 app.use('/auth/smarteats',authRoutes);
 app.use('/upload/smarteats',uploadRoutes);
 app.use('/barcode/smarteats',barcodeRoutes);
