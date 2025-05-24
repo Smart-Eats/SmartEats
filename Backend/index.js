@@ -19,22 +19,10 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Parse allowed origins from env
-const allowedOrigins = process.env.CLIENT_URL.split(',');
-
-// CORS setup
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow no origin (like mobile apps, curl)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: 'https://smart-eats-frontend-9a9q5nyh3-himanshuvips-projects.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 }));
 
 // Express settings
