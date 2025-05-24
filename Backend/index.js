@@ -11,6 +11,7 @@ import uploadRoutes from './routing/upload.routes.js';
 import healthDataRoutes from './routing/HealthData.routes.js'
 import barcodeRoutes from './routing/barcode.routes.js';
 import dotenv from 'dotenv';
+import cors from 'cors';
 dotenv.config();
 
 const app = express();
@@ -29,7 +30,7 @@ import cors from 'cors';
 // CORS setup
 const allowedOrigins = [process.env.CLIENT_URL, "https://smart-eats-frontend.vercel.app"];
 
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -40,11 +41,13 @@ app.use(cors({
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 //! Set view Engine Uncomment If NEEDED
 // app.set('view engine','ejs');
-app.options('*', cors());
 app.use('/auth/smarteats',authRoutes);
 app.use('/upload/smarteats',uploadRoutes);
 app.use('/barcode/smarteats',barcodeRoutes);
