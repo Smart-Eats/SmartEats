@@ -37,9 +37,9 @@ app.set('view engine', 'ejs');
 
 // Routes
 
-app.get('/',(res,req)=>{
-  res.send("api is running !");
-})
+// app.get('/',(res,req)=>{
+//   res.send("api is running !")
+// })
 app.use('/auth/smarteats', authRoutes);
 app.use('/upload/smarteats', uploadRoutes);
 app.use('/barcode/smarteats', barcodeRoutes);
