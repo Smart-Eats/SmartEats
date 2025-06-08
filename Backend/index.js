@@ -20,7 +20,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(cors({
-  origin: 'https://smart-eats-frontend-9a9q5nyh3-himanshuvips-projects.vercel.app',
+  origin: process.env.CLIENT_URL,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
@@ -36,6 +36,10 @@ app.use(passport.initialize());
 app.set('view engine', 'ejs');
 
 // Routes
+
+app.get('/',(res,req)=>{
+  res.send("api is running !");
+})
 app.use('/auth/smarteats', authRoutes);
 app.use('/upload/smarteats', uploadRoutes);
 app.use('/barcode/smarteats', barcodeRoutes);
